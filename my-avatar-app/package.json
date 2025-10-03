@@ -10,10 +10,15 @@
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
     "@langchain/google-genai": "^0.2.18",
+    "@heygen/streaming-avatar": "^2.1.0",
     "langchain": "^0.3.35",
+    "livekit-client": "^2.5.10",
     "next": "15.5.4",
+    "openai": "^4.57.0",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "vosk": "^0.3.39",
+    "ytdl-core": "^4.11.5"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

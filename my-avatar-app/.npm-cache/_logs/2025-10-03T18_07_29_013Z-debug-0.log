@@ -1,0 +1,824 @@
+0 verbose cli /opt/homebrew/Cellar/node/24.6.0/bin/node /opt/homebrew/bin/npm
+1 info using npm@11.5.1
+2 info using node@v24.6.0
+3 silly config load:file:/opt/homebrew/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/.npmrc
+5 silly config load:file:/Users/meghanarendrasimha/.npmrc
+6 silly config load:file:/opt/homebrew/etc/npmrc
+7 verbose title npm install
+8 verbose argv "install" "--cache" ".npm-cache"
+9 verbose logfile logs-max:10 dir:/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/.npm-cache/_logs/2025-10-03T18_07_29_013Z-
+10 verbose logfile /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/.npm-cache/_logs/2025-10-03T18_07_29_013Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:4496293888 maxSize:1124073472 maxEntrySize:562036736
+13 silly idealTree buildDeps
+14 silly fetch manifest vosk@^0.3.39
+15 silly packumentCache full:https://registry.npmjs.org/vosk cache-miss
+16 verbose shrinkwrap failed to load node_modules/.package-lock.json out of date, updated: node_modules
+17 http fetch GET 200 https://registry.npmjs.org/vosk 124ms (cache miss)
+18 silly packumentCache full:https://registry.npmjs.org/vosk set size:undefined disposed:false
+19 silly placeDep ROOT vosk@0.3.39 OK for: my-avatar-app@0.1.0 want: ^0.3.39
+20 silly fetch manifest async@^3.2.0
+21 silly packumentCache full:https://registry.npmjs.org/async cache-miss
+22 silly fetch manifest ffi-napi@^4.0.3
+23 silly packumentCache full:https://registry.npmjs.org/ffi-napi cache-miss
+24 silly fetch manifest mic@^2.1.2
+25 silly packumentCache full:https://registry.npmjs.org/mic cache-miss
+26 silly fetch manifest ref-napi@>=2.0.0
+27 silly packumentCache full:https://registry.npmjs.org/ref-napi cache-miss
+28 silly fetch manifest wav@^1.0.2
+29 silly packumentCache full:https://registry.npmjs.org/wav cache-miss
+30 http fetch GET 200 https://registry.npmjs.org/async 68ms (cache miss)
+31 silly packumentCache full:https://registry.npmjs.org/async set size:undefined disposed:false
+32 http fetch GET 200 https://registry.npmjs.org/ref-napi 175ms (cache miss)
+33 silly packumentCache full:https://registry.npmjs.org/ref-napi set size:undefined disposed:false
+34 http fetch GET 200 https://registry.npmjs.org/wav 252ms (cache miss)
+35 silly packumentCache full:https://registry.npmjs.org/wav set size:undefined disposed:false
+36 http fetch GET 200 https://registry.npmjs.org/ffi-napi 265ms (cache miss)
+37 silly packumentCache full:https://registry.npmjs.org/ffi-napi set size:undefined disposed:false
+38 http fetch GET 200 https://registry.npmjs.org/mic 285ms (cache miss)
+39 silly packumentCache full:https://registry.npmjs.org/mic set size:undefined disposed:false
+40 silly placeDep ROOT async@3.2.6 OK for: vosk@0.3.39 want: ^3.2.0
+41 silly placeDep ROOT ffi-napi@4.0.3 OK for: vosk@0.3.39 want: ^4.0.3
+42 silly placeDep ROOT mic@2.1.2 OK for: vosk@0.3.39 want: ^2.1.2
+43 silly placeDep ROOT ref-napi@3.0.3 OK for: vosk@0.3.39 want: >=2.0.0
+44 silly placeDep ROOT wav@1.0.2 OK for: vosk@0.3.39 want: ^1.0.2
+45 silly fetch manifest debug@^4.1.1
+46 silly packumentCache full:https://registry.npmjs.org/debug cache-miss
+47 silly fetch manifest get-uv-event-loop-napi-h@^1.0.5
+48 silly packumentCache full:https://registry.npmjs.org/get-uv-event-loop-napi-h cache-miss
+49 silly fetch manifest node-addon-api@^3.0.0
+50 silly packumentCache full:https://registry.npmjs.org/node-addon-api cache-miss
+51 silly fetch manifest node-gyp-build@^4.2.1
+52 silly packumentCache full:https://registry.npmjs.org/node-gyp-build cache-miss
+53 silly fetch manifest ref-napi@^2.0.1 || ^3.0.2
+54 silly packumentCache full:https://registry.npmjs.org/ref-napi cache-miss
+55 silly fetch manifest ref-struct-di@^1.1.0
+56 silly packumentCache full:https://registry.npmjs.org/ref-struct-di cache-miss
+57 silly fetch manifest debug@^4.1.1
+58 silly packumentCache full:https://registry.npmjs.org/debug cache-miss
+59 silly fetch manifest get-symbol-from-current-process-h@^1.0.2
+60 silly packumentCache full:https://registry.npmjs.org/get-symbol-from-current-process-h cache-miss
+61 silly fetch manifest node-addon-api@^3.0.0
+62 silly packumentCache full:https://registry.npmjs.org/node-addon-api cache-miss
+63 http cache https://registry.npmjs.org/ref-napi 5ms (cache hit)
+64 silly packumentCache full:https://registry.npmjs.org/ref-napi set size:56735 disposed:false
+65 silly fetch manifest node-gyp-build@^4.2.1
+66 silly packumentCache full:https://registry.npmjs.org/node-gyp-build cache-miss
+67 http fetch GET 200 https://registry.npmjs.org/node-gyp-build 55ms (cache miss)
+68 silly packumentCache full:https://registry.npmjs.org/node-gyp-build set size:undefined disposed:false
+69 silly fetch manifest buffer-alloc@^1.1.0
+70 silly packumentCache full:https://registry.npmjs.org/buffer-alloc cache-miss
+71 http fetch GET 200 https://registry.npmjs.org/debug 56ms (cache miss)
+72 silly packumentCache full:https://registry.npmjs.org/debug set size:undefined disposed:false
+73 silly fetch manifest buffer-from@^1.0.0
+74 silly packumentCache full:https://registry.npmjs.org/buffer-from cache-miss
+75 http fetch GET 200 https://registry.npmjs.org/ref-struct-di 60ms (cache miss)
+76 silly packumentCache full:https://registry.npmjs.org/ref-struct-di set size:undefined disposed:false
+77 silly fetch manifest debug@^2.2.0
+78 silly packumentCache full:https://registry.npmjs.org/debug cache-miss
+79 http cache https://registry.npmjs.org/debug 1ms (cache hit)
+80 silly packumentCache full:https://registry.npmjs.org/debug set size:195840 disposed:false
+81 silly fetch manifest readable-stream@^1.1.14
+82 silly packumentCache full:https://registry.npmjs.org/readable-stream cache-miss
+83 http fetch GET 200 https://registry.npmjs.org/node-addon-api 67ms (cache miss)
+84 silly packumentCache full:https://registry.npmjs.org/node-addon-api set size:undefined disposed:false
+85 silly fetch manifest stream-parser@^0.3.1
+86 silly packumentCache full:https://registry.npmjs.org/stream-parser cache-miss
+87 http fetch GET 200 https://registry.npmjs.org/get-uv-event-loop-napi-h 79ms (cache miss)
+88 silly packumentCache full:https://registry.npmjs.org/get-uv-event-loop-napi-h set size:undefined disposed:false
+89 http fetch GET 200 https://registry.npmjs.org/buffer-alloc 60ms (cache miss)
+90 silly packumentCache full:https://registry.npmjs.org/buffer-alloc set size:undefined disposed:false
+91 http fetch GET 200 https://registry.npmjs.org/stream-parser 68ms (cache miss)
+92 silly packumentCache full:https://registry.npmjs.org/stream-parser set size:undefined disposed:false
+93 http fetch GET 200 https://registry.npmjs.org/buffer-from 80ms (cache miss)
+94 silly packumentCache full:https://registry.npmjs.org/buffer-from set size:undefined disposed:false
+95 http fetch GET 200 https://registry.npmjs.org/node-addon-api 138ms (cache miss)
+96 silly packumentCache full:https://registry.npmjs.org/node-addon-api set size:undefined disposed:false
+97 http fetch GET 200 https://registry.npmjs.org/readable-stream 77ms (cache miss)
+98 silly packumentCache full:https://registry.npmjs.org/readable-stream set size:undefined disposed:false
+99 http fetch GET 200 https://registry.npmjs.org/debug 149ms (cache miss)
+100 silly packumentCache full:https://registry.npmjs.org/debug set size:undefined disposed:false
+101 silly packumentCache full:https://registry.npmjs.org/debug dispose
+102 http fetch GET 200 https://registry.npmjs.org/node-gyp-build 203ms (cache miss)
+103 silly packumentCache full:https://registry.npmjs.org/node-gyp-build set size:undefined disposed:false
+104 http fetch GET 200 https://registry.npmjs.org/get-symbol-from-current-process-h 231ms (cache miss)
+105 silly packumentCache full:https://registry.npmjs.org/get-symbol-from-current-process-h set size:undefined disposed:false
+106 silly placeDep ROOT debug@4.4.3 OK for: ffi-napi@4.0.3 want: ^4.1.1
+107 silly placeDep ROOT get-uv-event-loop-napi-h@1.0.6 OK for: ffi-napi@4.0.3 want: ^1.0.5
+108 silly placeDep ROOT node-addon-api@3.2.1 OK for: ffi-napi@4.0.3 want: ^3.0.0
+109 silly placeDep ROOT node-gyp-build@4.8.4 OK for: ffi-napi@4.0.3 want: ^4.2.1
+110 silly placeDep ROOT ref-struct-di@1.1.1 OK for: ffi-napi@4.0.3 want: ^1.1.0
+111 silly fetch manifest get-symbol-from-current-process-h@^1.0.1
+112 silly packumentCache full:https://registry.npmjs.org/get-symbol-from-current-process-h cache-miss
+113 silly fetch manifest debug@^3.1.0
+114 silly packumentCache full:https://registry.npmjs.org/debug cache-miss
+115 http cache https://registry.npmjs.org/debug 1ms (cache hit)
+116 silly packumentCache full:https://registry.npmjs.org/debug set size:195840 disposed:true
+117 http cache https://registry.npmjs.org/get-symbol-from-current-process-h 2ms (cache hit)
+118 silly packumentCache full:https://registry.npmjs.org/get-symbol-from-current-process-h set size:8501 disposed:false
+119 silly placeDep ROOT get-symbol-from-current-process-h@1.0.2 OK for: get-uv-event-loop-napi-h@1.0.6 want: ^1.0.1
+120 silly placeDep node_modules/ref-struct-di debug@3.2.7 OK for: ref-struct-di@1.1.1 want: ^3.1.0
+121 silly placeDep ROOT buffer-alloc@1.2.0 OK for: wav@1.0.2 want: ^1.1.0
+122 silly placeDep ROOT buffer-from@1.1.2 OK for: wav@1.0.2 want: ^1.0.0
+123 silly placeDep node_modules/wav debug@2.6.9 OK for: wav@1.0.2 want: ^2.2.0
+124 silly placeDep ROOT readable-stream@1.1.14 OK for: wav@1.0.2 want: ^1.1.14
+125 silly placeDep ROOT stream-parser@0.3.1 OK for: wav@1.0.2 want: ^0.3.1
+126 silly fetch manifest buffer-alloc-unsafe@^1.1.0
+127 silly packumentCache full:https://registry.npmjs.org/buffer-alloc-unsafe cache-miss
+128 silly fetch manifest buffer-fill@^1.0.0
+129 silly packumentCache full:https://registry.npmjs.org/buffer-fill cache-miss
+130 silly fetch manifest ms@2.0.0
+131 silly packumentCache full:https://registry.npmjs.org/ms cache-miss
+132 silly fetch manifest isarray@0.0.1
+133 silly packumentCache full:https://registry.npmjs.org/isarray cache-miss
+134 silly fetch manifest inherits@~2.0.1
+135 silly packumentCache full:https://registry.npmjs.org/inherits cache-miss
+136 silly fetch manifest core-util-is@~1.0.0
+137 silly packumentCache full:https://registry.npmjs.org/core-util-is cache-miss
+138 silly fetch manifest string_decoder@~0.10.x
+139 silly packumentCache full:https://registry.npmjs.org/string_decoder cache-miss
+140 silly fetch manifest debug@2
+141 silly packumentCache full:https://registry.npmjs.org/debug cache-hit
+142 http fetch GET 200 https://registry.npmjs.org/inherits 38ms (cache miss)
+143 silly packumentCache full:https://registry.npmjs.org/inherits set size:undefined disposed:false
+144 http fetch GET 200 https://registry.npmjs.org/ms 43ms (cache revalidated)
+145 silly packumentCache full:https://registry.npmjs.org/ms set size:92208 disposed:false
+146 http fetch GET 200 https://registry.npmjs.org/buffer-fill 51ms (cache miss)
+147 silly packumentCache full:https://registry.npmjs.org/buffer-fill set size:undefined disposed:false
+148 http fetch GET 200 https://registry.npmjs.org/string_decoder 51ms (cache miss)
+149 silly packumentCache full:https://registry.npmjs.org/string_decoder set size:undefined disposed:false
+150 http fetch GET 200 https://registry.npmjs.org/core-util-is 55ms (cache miss)
+151 silly packumentCache full:https://registry.npmjs.org/core-util-is set size:undefined disposed:false
+152 http fetch GET 200 https://registry.npmjs.org/buffer-alloc-unsafe 56ms (cache miss)
+153 silly packumentCache full:https://registry.npmjs.org/buffer-alloc-unsafe set size:undefined disposed:false
+154 http fetch GET 200 https://registry.npmjs.org/isarray 60ms (cache miss)
+155 silly packumentCache full:https://registry.npmjs.org/isarray set size:undefined disposed:false
+156 silly placeDep ROOT buffer-alloc-unsafe@1.1.0 OK for: buffer-alloc@1.2.0 want: ^1.1.0
+157 silly placeDep ROOT buffer-fill@1.0.0 OK for: buffer-alloc@1.2.0 want: ^1.0.0
+158 silly placeDep ROOT core-util-is@1.0.3 OK for: readable-stream@1.1.14 want: ~1.0.0
+159 silly placeDep ROOT inherits@2.0.4 OK for: readable-stream@1.1.14 want: ~2.0.1
+160 silly placeDep ROOT isarray@0.0.1 OK for: readable-stream@1.1.14 want: 0.0.1
+161 silly placeDep ROOT string_decoder@0.10.31 OK for: readable-stream@1.1.14 want: ~0.10.x
+162 silly placeDep node_modules/stream-parser debug@2.6.9 OK for: stream-parser@0.3.1 want: 2
+163 silly placeDep node_modules/stream-parser ms@2.0.0 OK for: debug@2.6.9 want: 2.0.0
+164 silly placeDep node_modules/wav ms@2.0.0 OK for: debug@2.6.9 want: 2.0.0
+165 silly reify moves {}
+166 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-wasm32-wasi
+167 silly reify mark deleted [
+167 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-wasm32-wasi'
+167 silly reify ]
+168 silly audit bulk request {
+168 silly audit   '@alloc/quick-lru': [ '5.2.0' ],
+168 silly audit   '@bufbuild/protobuf': [ '1.10.1' ],
+168 silly audit   '@cfworker/json-schema': [ '4.1.1' ],
+168 silly audit   '@emnapi/runtime': [ '1.5.0' ],
+168 silly audit   '@google/generative-ai': [ '0.24.1' ],
+168 silly audit   '@heygen/streaming-avatar': [ '2.1.0' ],
+168 silly audit   '@livekit/protocol': [ '1.36.1', '1.42.0' ],
+168 silly audit   'livekit-client': [ '2.11.3', '2.15.8' ],
+168 silly audit   '@img/colour': [ '1.0.0' ],
+168 silly audit   '@img/sharp-darwin-arm64': [ '0.34.4' ],
+168 silly audit   '@img/sharp-darwin-x64': [ '0.34.4' ],
+168 silly audit   '@img/sharp-libvips-darwin-arm64': [ '1.2.3' ],
+168 silly audit   '@img/sharp-libvips-darwin-x64': [ '1.2.3' ],
+168 silly audit   '@img/sharp-libvips-linux-arm': [ '1.2.3' ],
+168 silly audit   '@img/sharp-libvips-linux-arm64': [ '1.2.3' ],
+168 silly audit   '@img/sharp-libvips-linux-ppc64': [ '1.2.3' ],
+168 silly audit   '@img/sharp-libvips-linux-s390x': [ '1.2.3' ],
+168 silly audit   '@img/sharp-libvips-linux-x64': [ '1.2.3' ],
+168 silly audit   '@img/sharp-libvips-linuxmusl-arm64': [ '1.2.3' ],
+168 silly audit   '@img/sharp-libvips-linuxmusl-x64': [ '1.2.3' ],
+168 silly audit   '@img/sharp-linux-arm': [ '0.34.4' ],
+168 silly audit   '@img/sharp-linux-arm64': [ '0.34.4' ],
+168 silly audit   '@img/sharp-linux-ppc64': [ '0.34.4' ],
+168 silly audit   '@img/sharp-linux-s390x': [ '0.34.4' ],
+168 silly audit   '@img/sharp-linux-x64': [ '0.34.4' ],
+168 silly audit   '@img/sharp-linuxmusl-arm64': [ '0.34.4' ],
+168 silly audit   '@img/sharp-linuxmusl-x64': [ '0.34.4' ],
+168 silly audit   '@img/sharp-wasm32': [ '0.34.4' ],
+168 silly audit   '@img/sharp-win32-arm64': [ '0.34.4' ],
+168 silly audit   '@img/sharp-win32-ia32': [ '0.34.4' ],
+168 silly audit   '@img/sharp-win32-x64': [ '0.34.4' ],
+168 silly audit   '@isaacs/fs-minipass': [ '4.0.1' ],
+168 silly audit   '@jridgewell/gen-mapping': [ '0.3.13' ],
+168 silly audit   '@jridgewell/remapping': [ '2.3.5' ],
+168 silly audit   '@jridgewell/resolve-uri': [ '3.1.2' ],
+168 silly audit   '@jridgewell/sourcemap-codec': [ '1.5.5' ],
+168 silly audit   '@jridgewell/trace-mapping': [ '0.3.31' ],
+168 silly audit   '@langchain/core': [ '0.3.78' ],
+168 silly audit   '@langchain/google-genai': [ '0.2.18' ],
+168 silly audit   uuid: [ '11.1.0', '10.0.0' ],
+168 silly audit   '@langchain/openai': [ '0.6.14' ],
+168 silly audit   openai: [ '5.12.2', '4.104.0' ],
+168 silly audit   '@langchain/textsplitters': [ '0.1.0' ],
+168 silly audit   '@livekit/mutex': [ '1.1.1' ],
+168 silly audit   '@next/env': [ '15.5.4' ],
+168 silly audit   '@next/swc-darwin-arm64': [ '15.5.4' ],
+168 silly audit   '@next/swc-darwin-x64': [ '15.5.4' ],
+168 silly audit   '@next/swc-linux-arm64-gnu': [ '15.5.4' ],
+168 silly audit   '@next/swc-linux-arm64-musl': [ '15.5.4' ],
+168 silly audit   '@next/swc-linux-x64-gnu': [ '15.5.4' ],
+168 silly audit   '@next/swc-linux-x64-musl': [ '15.5.4' ],
+168 silly audit   '@next/swc-win32-arm64-msvc': [ '15.5.4' ],
+168 silly audit   '@next/swc-win32-x64-msvc': [ '15.5.4' ],
+168 silly audit   '@protobufjs/aspromise': [ '1.1.2' ],
+168 silly audit   '@protobufjs/base64': [ '1.1.2' ],
+168 silly audit   '@protobufjs/codegen': [ '2.0.4' ],
+168 silly audit   '@protobufjs/eventemitter': [ '1.1.0' ],
+168 silly audit   '@protobufjs/fetch': [ '1.1.0' ],
+168 silly audit   '@protobufjs/float': [ '1.0.2' ],
+168 silly audit   '@protobufjs/inquire': [ '1.1.0' ],
+168 silly audit   '@protobufjs/path': [ '1.1.2' ],
+168 silly audit   '@protobufjs/pool': [ '1.1.0' ],
+168 silly audit   '@protobufjs/utf8': [ '1.1.0' ],
+168 silly audit   '@swc/helpers': [ '0.5.15' ],
+168 silly audit   '@tailwindcss/node': [ '4.1.14' ],
+168 silly audit   '@tailwindcss/oxide': [ '4.1.14' ],
+168 silly audit   '@tailwindcss/oxide-android-arm64': [ '4.1.14' ],
+168 silly audit   '@tailwindcss/oxide-darwin-arm64': [ '4.1.14' ],
+168 silly audit   '@tailwindcss/oxide-darwin-x64': [ '4.1.14' ],
+168 silly audit   '@tailwindcss/oxide-freebsd-x64': [ '4.1.14' ],
+168 silly audit   '@tailwindcss/oxide-linux-arm-gnueabihf': [ '4.1.14' ],
+168 silly audit   '@tailwindcss/oxide-linux-arm64-gnu': [ '4.1.14' ],
+168 silly audit   '@tailwindcss/oxide-linux-arm64-musl': [ '4.1.14' ],
+168 silly audit   '@tailwindcss/oxide-linux-x64-gnu': [ '4.1.14' ],
+168 silly audit   '@tailwindcss/oxide-linux-x64-musl': [ '4.1.14' ],
+168 silly audit   '@tailwindcss/oxide-win32-arm64-msvc': [ '4.1.14' ],
+168 silly audit   '@tailwindcss/oxide-win32-x64-msvc': [ '4.1.14' ],
+168 silly audit   '@tailwindcss/postcss': [ '4.1.14' ],
+168 silly audit   '@types/dom-mediacapture-record': [ '1.0.22' ],
+168 silly audit   '@types/node': [ '20.19.19', '18.19.129' ],
+168 silly audit   '@types/node-fetch': [ '2.6.13' ],
+168 silly audit   '@types/react': [ '19.1.17' ],
+168 silly audit   '@types/react-dom': [ '19.1.11' ],
+168 silly audit   '@types/retry': [ '0.12.0' ],
+168 silly audit   '@types/uuid': [ '10.0.0' ],
+168 silly audit   'abort-controller': [ '3.0.0' ],
+168 silly audit   agentkeepalive: [ '4.6.0' ],
+168 silly audit   'ansi-styles': [ '5.2.0', '4.3.0' ],
+168 silly audit   argparse: [ '2.0.1' ],
+168 silly audit   asynckit: [ '0.4.0' ],
+168 silly audit   'base64-js': [ '1.5.1' ],
+168 silly audit   'call-bind-apply-helpers': [ '1.0.2' ],
+168 silly audit   camelcase: [ '6.3.0' ],
+168 silly audit   'caniuse-lite': [ '1.0.30001746' ],
+168 silly audit   chalk: [ '4.1.2' ],
+168 silly audit   chownr: [ '3.0.0' ],
+168 silly audit   'client-only': [ '0.0.1' ],
+168 silly audit   'color-convert': [ '2.0.1' ],
+168 silly audit   'color-name': [ '1.1.4' ],
+168 silly audit   'combined-stream': [ '1.0.8' ],
+168 silly audit   'console-table-printer': [ '2.14.6' ],
+168 silly audit   csstype: [ '3.1.3' ],
+168 silly audit   decamelize: [ '1.2.0' ],
+168 silly audit   'delayed-stream': [ '1.0.0' ],
+168 silly audit   'detect-libc': [ '2.1.1' ],
+168 silly audit   'dunder-proto': [ '1.0.1' ],
+168 silly audit   'enhanced-resolve': [ '5.18.3' ],
+168 silly audit   'es-define-property': [ '1.0.1' ],
+168 silly audit   'es-errors': [ '1.3.0' ],
+168 silly audit   'es-object-atoms': [ '1.1.1' ],
+168 silly audit   'es-set-tostringtag': [ '2.1.0' ],
+168 silly audit   'event-target-shim': [ '5.0.1' ],
+168 silly audit   eventemitter3: [ '4.0.7' ],
+168 silly audit   events: [ '3.3.0' ],
+168 silly audit   'form-data': [ '4.0.4' ],
+168 silly audit   'form-data-encoder': [ '1.7.2' ],
+168 silly audit   'formdata-node': [ '4.4.1' ],
+168 silly audit   'function-bind': [ '1.1.2' ],
+168 silly audit   'get-intrinsic': [ '1.3.0' ],
+168 silly audit   'get-proto': [ '1.0.1' ],
+168 silly audit   gopd: [ '1.2.0' ],
+168 silly audit   'graceful-fs': [ '4.2.11' ],
+168 silly audit   'has-flag': [ '4.0.0' ],
+168 silly audit   'has-symbols': [ '1.1.0' ],
+168 silly audit   'has-tostringtag': [ '1.0.2' ],
+168 silly audit   hasown: [ '2.0.2' ],
+168 silly audit   'humanize-ms': [ '1.2.1' ],
+168 silly audit   jiti: [ '2.6.1' ],
+168 silly audit   jose: [ '6.1.0' ],
+168 silly audit   'js-tiktoken': [ '1.0.21' ],
+168 silly audit   'js-yaml': [ '4.1.0' ],
+168 silly audit   jsonpointer: [ '5.0.1' ],
+168 silly audit   langchain: [ '0.3.35' ],
+168 silly audit   langsmith: [ '0.3.71' ],
+168 silly audit   lightningcss: [ '1.30.1' ],
+168 silly audit   'lightningcss-darwin-arm64': [ '1.30.1' ],
+168 silly audit   'lightningcss-darwin-x64': [ '1.30.1' ],
+168 silly audit   'lightningcss-freebsd-x64': [ '1.30.1' ],
+168 silly audit   'lightningcss-linux-arm-gnueabihf': [ '1.30.1' ],
+168 silly audit   'lightningcss-linux-arm64-gnu': [ '1.30.1' ],
+168 silly audit   'lightningcss-linux-arm64-musl': [ '1.30.1' ],
+168 silly audit   'lightningcss-linux-x64-gnu': [ '1.30.1' ],
+168 silly audit   'lightningcss-linux-x64-musl': [ '1.30.1' ],
+168 silly audit   'lightningcss-win32-arm64-msvc': [ '1.30.1' ],
+168 silly audit   'lightningcss-win32-x64-msvc': [ '1.30.1' ],
+168 silly audit   loglevel: [ '1.9.2' ],
+168 silly audit   long: [ '5.3.2' ],
+168 silly audit   m3u8stream: [ '0.8.6' ],
+168 silly audit   'magic-string': [ '0.30.19' ],
+168 silly audit   'math-intrinsics': [ '1.1.0' ],
+168 silly audit   'mime-db': [ '1.52.0' ],
+168 silly audit   'mime-types': [ '2.1.35' ],
+168 silly audit   miniget: [ '4.2.3' ],
+168 silly audit   minipass: [ '7.1.2' ],
+168 silly audit   minizlib: [ '3.1.0' ],
+168 silly audit   ms: [ '2.1.3', '2.0.0' ],
+168 silly audit   mustache: [ '4.2.0' ],
+168 silly audit   nanoid: [ '3.3.11' ],
+168 silly audit   next: [ '15.5.4' ],
+168 silly audit   postcss: [ '8.4.31', '8.5.6' ],
+168 silly audit   'node-domexception': [ '1.0.0' ],
+168 silly audit   'node-fetch': [ '2.7.0' ],
+168 silly audit   'undici-types': [ '5.26.5', '6.21.0' ],
+168 silly audit   'openapi-types': [ '12.1.3' ],
+168 silly audit   'p-finally': [ '1.0.0' ],
+168 silly audit   'p-queue': [ '6.6.2' ],
+168 silly audit   'p-retry': [ '4.6.2' ],
+168 silly audit   'p-timeout': [ '3.2.0' ],
+168 silly audit   picocolors: [ '1.1.1' ],
+168 silly audit   protobufjs: [ '7.5.0' ],
+168 silly audit   react: [ '19.1.0' ],
+168 silly audit   'react-dom': [ '19.1.0' ],
+168 silly audit   retry: [ '0.13.1' ],
+168 silly audit   rxjs: [ '7.8.2' ],
+168 silly audit   sax: [ '1.4.1' ],
+168 silly audit   scheduler: [ '0.26.0' ],
+168 silly audit   sdp: [ '3.2.1' ],
+168 silly audit   'sdp-transform': [ '2.15.0' ],
+168 silly audit   semver: [ '7.7.2' ],
+168 silly audit   sharp: [ '0.34.4' ],
+168 silly audit   'simple-wcswidth': [ '1.1.2' ],
+168 silly audit   'source-map-js': [ '1.2.1' ],
+168 silly audit   'styled-jsx': [ '5.1.6' ],
+168 silly audit   'supports-color': [ '7.2.0' ],
+168 silly audit   tailwindcss: [ '4.1.14' ],
+168 silly audit   tapable: [ '2.2.3' ],
+168 silly audit   tar: [ '7.5.1' ],
+168 silly audit   tr46: [ '0.0.3' ],
+168 silly audit   'ts-debounce': [ '4.0.0' ],
+168 silly audit   tslib: [ '2.8.1' ],
+168 silly audit   'typed-emitter': [ '2.1.0' ],
+168 silly audit   typescript: [ '5.9.3' ],
+168 silly audit   'web-streams-polyfill': [ '4.0.0-beta.3' ],
+168 silly audit   'webidl-conversions': [ '3.0.1' ],
+168 silly audit   'webrtc-adapter': [ '9.0.3' ],
+168 silly audit   'webrtc-issue-detector': [ '1.16.3' ],
+168 silly audit   'whatwg-url': [ '5.0.0' ],
+168 silly audit   yallist: [ '5.0.0' ],
+168 silly audit   yaml: [ '2.8.1' ],
+168 silly audit   'ytdl-core': [ '4.11.5' ],
+168 silly audit   zod: [ '3.25.76' ],
+168 silly audit   'zod-to-json-schema': [ '3.24.6' ],
+168 silly audit   vosk: [ '0.3.39' ],
+168 silly audit   async: [ '3.2.6' ],
+168 silly audit   'ffi-napi': [ '4.0.3' ],
+168 silly audit   mic: [ '2.1.2' ],
+168 silly audit   'ref-napi': [ '3.0.3' ],
+168 silly audit   wav: [ '1.0.2' ],
+168 silly audit   debug: [ '4.4.3', '3.2.7', '2.6.9' ],
+168 silly audit   'get-uv-event-loop-napi-h': [ '1.0.6' ],
+168 silly audit   'node-addon-api': [ '3.2.1' ],
+168 silly audit   'node-gyp-build': [ '4.8.4' ],
+168 silly audit   'ref-struct-di': [ '1.1.1' ],
+168 silly audit   'get-symbol-from-current-process-h': [ '1.0.2' ],
+168 silly audit   'buffer-alloc': [ '1.2.0' ],
+168 silly audit   'buffer-from': [ '1.1.2' ],
+168 silly audit   'readable-stream': [ '1.1.14' ],
+168 silly audit   'stream-parser': [ '0.3.1' ],
+168 silly audit   'buffer-alloc-unsafe': [ '1.1.0' ],
+168 silly audit   'buffer-fill': [ '1.0.0' ],
+168 silly audit   'core-util-is': [ '1.0.3' ],
+168 silly audit   inherits: [ '2.0.4' ],
+168 silly audit   isarray: [ '0.0.1' ],
+168 silly audit   string_decoder: [ '0.10.31' ],
+168 silly audit   '@tailwindcss/oxide-wasm32-wasi': [ '4.1.14' ]
+168 silly audit }
+169 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/lightningcss-win32-x64-msvc
+170 silly reify mark deleted [
+170 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/lightningcss-win32-x64-msvc'
+170 silly reify ]
+171 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/lightningcss-win32-arm64-msvc
+172 silly reify mark deleted [
+172 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/lightningcss-win32-arm64-msvc'
+172 silly reify ]
+173 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/lightningcss-linux-x64-musl
+174 silly reify mark deleted [
+174 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/lightningcss-linux-x64-musl'
+174 silly reify ]
+175 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/lightningcss-linux-x64-gnu
+176 silly reify mark deleted [
+176 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/lightningcss-linux-x64-gnu'
+176 silly reify ]
+177 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/lightningcss-linux-arm64-musl
+178 silly reify mark deleted [
+178 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/lightningcss-linux-arm64-musl'
+178 silly reify ]
+179 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/lightningcss-linux-arm64-gnu
+180 silly reify mark deleted [
+180 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/lightningcss-linux-arm64-gnu'
+180 silly reify ]
+181 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/lightningcss-linux-arm-gnueabihf
+182 silly reify mark deleted [
+182 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/lightningcss-linux-arm-gnueabihf'
+182 silly reify ]
+183 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/lightningcss-freebsd-x64
+184 silly reify mark deleted [
+184 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/lightningcss-freebsd-x64'
+184 silly reify ]
+185 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/lightningcss-darwin-x64
+186 silly reify mark deleted [
+186 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/lightningcss-darwin-x64'
+186 silly reify ]
+187 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-win32-x64-msvc
+188 silly reify mark deleted [
+188 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-win32-x64-msvc'
+188 silly reify ]
+189 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-win32-arm64-msvc
+190 silly reify mark deleted [
+190 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-win32-arm64-msvc'
+190 silly reify ]
+191 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-linux-x64-musl
+192 silly reify mark deleted [
+192 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-linux-x64-musl'
+192 silly reify ]
+193 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-linux-x64-gnu
+194 silly reify mark deleted [
+194 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-linux-x64-gnu'
+194 silly reify ]
+195 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-linux-arm64-musl
+196 silly reify mark deleted [
+196 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-linux-arm64-musl'
+196 silly reify ]
+197 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-linux-arm64-gnu
+198 silly reify mark deleted [
+198 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-linux-arm64-gnu'
+198 silly reify ]
+199 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-linux-arm-gnueabihf
+200 silly reify mark deleted [
+200 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-linux-arm-gnueabihf'
+200 silly reify ]
+201 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-freebsd-x64
+202 silly reify mark deleted [
+202 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-freebsd-x64'
+202 silly reify ]
+203 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-darwin-x64
+204 silly reify mark deleted [
+204 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-darwin-x64'
+204 silly reify ]
+205 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-android-arm64
+206 silly reify mark deleted [
+206 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-android-arm64'
+206 silly reify ]
+207 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@next/swc-win32-x64-msvc
+208 silly reify mark deleted [
+208 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@next/swc-win32-x64-msvc'
+208 silly reify ]
+209 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@next/swc-win32-arm64-msvc
+210 silly reify mark deleted [
+210 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@next/swc-win32-arm64-msvc'
+210 silly reify ]
+211 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@next/swc-linux-x64-musl
+212 silly reify mark deleted [
+212 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@next/swc-linux-x64-musl'
+212 silly reify ]
+213 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@next/swc-linux-x64-gnu
+214 silly reify mark deleted [
+214 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@next/swc-linux-x64-gnu'
+214 silly reify ]
+215 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@next/swc-linux-arm64-musl
+216 silly reify mark deleted [
+216 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@next/swc-linux-arm64-musl'
+216 silly reify ]
+217 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@next/swc-linux-arm64-gnu
+218 silly reify mark deleted [
+218 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@next/swc-linux-arm64-gnu'
+218 silly reify ]
+219 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@next/swc-darwin-x64
+220 silly reify mark deleted [
+220 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@next/swc-darwin-x64'
+220 silly reify ]
+221 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-win32-x64
+222 silly reify mark deleted [
+222 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-win32-x64'
+222 silly reify ]
+223 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-win32-ia32
+224 silly reify mark deleted [
+224 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-win32-ia32'
+224 silly reify ]
+225 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-win32-arm64
+226 silly reify mark deleted [
+226 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-win32-arm64'
+226 silly reify ]
+227 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-wasm32
+228 silly reify mark deleted [
+228 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-wasm32'
+228 silly reify ]
+229 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-linuxmusl-x64
+230 silly reify mark deleted [
+230 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-linuxmusl-x64'
+230 silly reify ]
+231 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-linuxmusl-arm64
+232 silly reify mark deleted [
+232 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-linuxmusl-arm64'
+232 silly reify ]
+233 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-linux-x64
+234 silly reify mark deleted [
+234 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-linux-x64'
+234 silly reify ]
+235 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-linux-s390x
+236 silly reify mark deleted [
+236 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-linux-s390x'
+236 silly reify ]
+237 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-linux-ppc64
+238 silly reify mark deleted [
+238 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-linux-ppc64'
+238 silly reify ]
+239 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-linux-arm64
+240 silly reify mark deleted [
+240 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-linux-arm64'
+240 silly reify ]
+241 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-linux-arm
+242 silly reify mark deleted [
+242 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-linux-arm'
+242 silly reify ]
+243 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-libvips-linuxmusl-x64
+244 silly reify mark deleted [
+244 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-libvips-linuxmusl-x64'
+244 silly reify ]
+245 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-libvips-linuxmusl-arm64
+246 silly reify mark deleted [
+246 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-libvips-linuxmusl-arm64'
+246 silly reify ]
+247 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-libvips-linux-x64
+248 silly reify mark deleted [
+248 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-libvips-linux-x64'
+248 silly reify ]
+249 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-libvips-linux-s390x
+250 silly reify mark deleted [
+250 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-libvips-linux-s390x'
+250 silly reify ]
+251 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-libvips-linux-ppc64
+252 silly reify mark deleted [
+252 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-libvips-linux-ppc64'
+252 silly reify ]
+253 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-libvips-linux-arm64
+254 silly reify mark deleted [
+254 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-libvips-linux-arm64'
+254 silly reify ]
+255 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-libvips-linux-arm
+256 silly reify mark deleted [
+256 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-libvips-linux-arm'
+256 silly reify ]
+257 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-libvips-darwin-x64
+258 silly reify mark deleted [
+258 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-libvips-darwin-x64'
+258 silly reify ]
+259 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-darwin-x64
+260 silly reify mark deleted [
+260 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-darwin-x64'
+260 silly reify ]
+261 http cache string_decoder@https://registry.npmjs.org/string_decoder/-/string_decoder-0.10.31.tgz 0ms (cache hit)
+262 http cache isarray@https://registry.npmjs.org/isarray/-/isarray-0.0.1.tgz 0ms (cache hit)
+263 http cache inherits@https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz 0ms (cache hit)
+264 http cache buffer-fill@https://registry.npmjs.org/buffer-fill/-/buffer-fill-1.0.0.tgz 0ms (cache hit)
+265 http cache buffer-alloc-unsafe@https://registry.npmjs.org/buffer-alloc-unsafe/-/buffer-alloc-unsafe-1.1.0.tgz 0ms (cache hit)
+266 http cache stream-parser@https://registry.npmjs.org/stream-parser/-/stream-parser-0.3.1.tgz 0ms (cache hit)
+267 http cache buffer-alloc@https://registry.npmjs.org/buffer-alloc/-/buffer-alloc-1.2.0.tgz 0ms (cache hit)
+268 http cache get-symbol-from-current-process-h@https://registry.npmjs.org/get-symbol-from-current-process-h/-/get-symbol-from-current-process-h-1.0.2.tgz 0ms (cache hit)
+269 http cache core-util-is@https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.3.tgz 0ms (cache hit)
+270 http cache buffer-from@https://registry.npmjs.org/buffer-from/-/buffer-from-1.1.2.tgz 0ms (cache hit)
+271 http cache readable-stream@https://registry.npmjs.org/readable-stream/-/readable-stream-1.1.14.tgz 0ms (cache hit)
+272 http cache ref-struct-di@https://registry.npmjs.org/ref-struct-di/-/ref-struct-di-1.1.1.tgz 0ms (cache hit)
+273 http cache wav@https://registry.npmjs.org/wav/-/wav-1.0.2.tgz 0ms (cache hit)
+274 http cache debug@https://registry.npmjs.org/debug/-/debug-4.4.3.tgz 0ms (cache hit)
+275 http cache get-uv-event-loop-napi-h@https://registry.npmjs.org/get-uv-event-loop-napi-h/-/get-uv-event-loop-napi-h-1.0.6.tgz 0ms (cache hit)
+276 http cache node-gyp-build@https://registry.npmjs.org/node-gyp-build/-/node-gyp-build-4.8.4.tgz 0ms (cache hit)
+277 http cache node-addon-api@https://registry.npmjs.org/node-addon-api/-/node-addon-api-3.2.1.tgz 0ms (cache hit)
+278 http cache ffi-napi@https://registry.npmjs.org/ffi-napi/-/ffi-napi-4.0.3.tgz 0ms (cache hit)
+279 http cache debug@https://registry.npmjs.org/debug/-/debug-2.6.9.tgz 0ms (cache hit)
+280 http cache debug@https://registry.npmjs.org/debug/-/debug-3.2.7.tgz 0ms (cache hit)
+281 http cache mic@https://registry.npmjs.org/mic/-/mic-2.1.2.tgz 0ms (cache hit)
+282 http cache async@https://registry.npmjs.org/async/-/async-3.2.6.tgz 0ms (cache hit)
+283 http cache vosk@https://registry.npmjs.org/vosk/-/vosk-0.3.39.tgz 0ms (cache hit)
+284 http cache ref-napi@https://registry.npmjs.org/ref-napi/-/ref-napi-3.0.3.tgz 0ms (cache hit)
+285 http cache ms@https://registry.npmjs.org/ms/-/ms-2.0.0.tgz 0ms (cache hit)
+286 http cache ms@https://registry.npmjs.org/ms/-/ms-2.0.0.tgz 0ms (cache hit)
+287 http cache debug@https://registry.npmjs.org/debug/-/debug-2.6.9.tgz 0ms (cache hit)
+288 silly tarball no local data for string_decoder@https://registry.npmjs.org/string_decoder/-/string_decoder-0.10.31.tgz. Extracting by manifest.
+289 silly tarball no local data for isarray@https://registry.npmjs.org/isarray/-/isarray-0.0.1.tgz. Extracting by manifest.
+290 silly tarball no local data for inherits@https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz. Extracting by manifest.
+291 silly tarball no local data for buffer-fill@https://registry.npmjs.org/buffer-fill/-/buffer-fill-1.0.0.tgz. Extracting by manifest.
+292 silly tarball no local data for buffer-alloc-unsafe@https://registry.npmjs.org/buffer-alloc-unsafe/-/buffer-alloc-unsafe-1.1.0.tgz. Extracting by manifest.
+293 silly tarball no local data for stream-parser@https://registry.npmjs.org/stream-parser/-/stream-parser-0.3.1.tgz. Extracting by manifest.
+294 silly tarball no local data for buffer-alloc@https://registry.npmjs.org/buffer-alloc/-/buffer-alloc-1.2.0.tgz. Extracting by manifest.
+295 silly tarball no local data for get-symbol-from-current-process-h@https://registry.npmjs.org/get-symbol-from-current-process-h/-/get-symbol-from-current-process-h-1.0.2.tgz. Extracting by manifest.
+296 silly tarball no local data for core-util-is@https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.3.tgz. Extracting by manifest.
+297 silly tarball no local data for buffer-from@https://registry.npmjs.org/buffer-from/-/buffer-from-1.1.2.tgz. Extracting by manifest.
+298 silly tarball no local data for readable-stream@https://registry.npmjs.org/readable-stream/-/readable-stream-1.1.14.tgz. Extracting by manifest.
+299 silly tarball no local data for ref-struct-di@https://registry.npmjs.org/ref-struct-di/-/ref-struct-di-1.1.1.tgz. Extracting by manifest.
+300 silly tarball no local data for wav@https://registry.npmjs.org/wav/-/wav-1.0.2.tgz. Extracting by manifest.
+301 silly tarball no local data for debug@https://registry.npmjs.org/debug/-/debug-4.4.3.tgz. Extracting by manifest.
+302 silly tarball no local data for get-uv-event-loop-napi-h@https://registry.npmjs.org/get-uv-event-loop-napi-h/-/get-uv-event-loop-napi-h-1.0.6.tgz. Extracting by manifest.
+303 silly tarball no local data for node-gyp-build@https://registry.npmjs.org/node-gyp-build/-/node-gyp-build-4.8.4.tgz. Extracting by manifest.
+304 silly tarball no local data for node-addon-api@https://registry.npmjs.org/node-addon-api/-/node-addon-api-3.2.1.tgz. Extracting by manifest.
+305 silly tarball no local data for ffi-napi@https://registry.npmjs.org/ffi-napi/-/ffi-napi-4.0.3.tgz. Extracting by manifest.
+306 silly tarball no local data for debug@https://registry.npmjs.org/debug/-/debug-2.6.9.tgz. Extracting by manifest.
+307 silly tarball no local data for debug@https://registry.npmjs.org/debug/-/debug-3.2.7.tgz. Extracting by manifest.
+308 silly tarball no local data for mic@https://registry.npmjs.org/mic/-/mic-2.1.2.tgz. Extracting by manifest.
+309 silly tarball no local data for async@https://registry.npmjs.org/async/-/async-3.2.6.tgz. Extracting by manifest.
+310 silly tarball no local data for vosk@https://registry.npmjs.org/vosk/-/vosk-0.3.39.tgz. Extracting by manifest.
+311 silly tarball no local data for ref-napi@https://registry.npmjs.org/ref-napi/-/ref-napi-3.0.3.tgz. Extracting by manifest.
+312 silly tarball no local data for ms@https://registry.npmjs.org/ms/-/ms-2.0.0.tgz. Extracting by manifest.
+313 silly tarball no local data for ms@https://registry.npmjs.org/ms/-/ms-2.0.0.tgz. Extracting by manifest.
+314 silly tarball no local data for debug@https://registry.npmjs.org/debug/-/debug-2.6.9.tgz. Extracting by manifest.
+315 http fetch GET 200 https://registry.npmjs.org/isarray/-/isarray-0.0.1.tgz 40ms (cache miss)
+316 http fetch GET 200 https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz 56ms (cache miss)
+317 http fetch GET 200 https://registry.npmjs.org/buffer-fill/-/buffer-fill-1.0.0.tgz 59ms (cache miss)
+318 http fetch GET 200 https://registry.npmjs.org/get-symbol-from-current-process-h/-/get-symbol-from-current-process-h-1.0.2.tgz 58ms (cache miss)
+319 http fetch GET 200 https://registry.npmjs.org/stream-parser/-/stream-parser-0.3.1.tgz 59ms (cache miss)
+320 http fetch GET 200 https://registry.npmjs.org/buffer-alloc/-/buffer-alloc-1.2.0.tgz 60ms (cache miss)
+321 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 70ms
+322 silly audit report {}
+323 http fetch GET 200 https://registry.npmjs.org/buffer-alloc-unsafe/-/buffer-alloc-unsafe-1.1.0.tgz 66ms (cache miss)
+324 http fetch GET 200 https://registry.npmjs.org/get-uv-event-loop-napi-h/-/get-uv-event-loop-napi-h-1.0.6.tgz 80ms (cache miss)
+325 http fetch GET 200 https://registry.npmjs.org/node-addon-api/-/node-addon-api-3.2.1.tgz 87ms (cache miss)
+326 http fetch GET 200 https://registry.npmjs.org/node-gyp-build/-/node-gyp-build-4.8.4.tgz 94ms (cache miss)
+327 http fetch GET 200 https://registry.npmjs.org/debug/-/debug-3.2.7.tgz 104ms (cache miss)
+328 http fetch GET 200 https://registry.npmjs.org/string_decoder/-/string_decoder-0.10.31.tgz 106ms (cache miss)
+329 http fetch GET 200 https://registry.npmjs.org/buffer-from/-/buffer-from-1.1.2.tgz 119ms (cache miss)
+330 http fetch GET 200 https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.3.tgz 119ms (cache miss)
+331 http fetch GET 200 https://registry.npmjs.org/debug/-/debug-2.6.9.tgz 121ms (cache miss)
+332 http fetch GET 200 https://registry.npmjs.org/ms/-/ms-2.0.0.tgz 142ms (cache miss)
+333 http fetch GET 200 https://registry.npmjs.org/mic/-/mic-2.1.2.tgz 142ms (cache miss)
+334 http fetch GET 200 https://registry.npmjs.org/async/-/async-3.2.6.tgz 145ms (cache miss)
+335 http fetch GET 200 https://registry.npmjs.org/readable-stream/-/readable-stream-1.1.14.tgz 149ms (cache miss)
+336 http fetch GET 200 https://registry.npmjs.org/debug/-/debug-4.4.3.tgz 160ms (cache miss)
+337 http fetch GET 200 https://registry.npmjs.org/ms/-/ms-2.0.0.tgz 160ms (cache miss)
+338 http fetch GET 200 https://registry.npmjs.org/ref-struct-di/-/ref-struct-di-1.1.1.tgz 177ms (cache miss)
+339 http fetch GET 200 https://registry.npmjs.org/ref-napi/-/ref-napi-3.0.3.tgz 179ms (cache miss)
+340 http fetch GET 200 https://registry.npmjs.org/wav/-/wav-1.0.2.tgz 198ms (cache miss)
+341 http fetch GET 200 https://registry.npmjs.org/debug/-/debug-2.6.9.tgz 223ms (cache miss)
+342 http fetch GET 200 https://registry.npmjs.org/ffi-napi/-/ffi-napi-4.0.3.tgz 272ms (cache miss)
+343 http fetch GET 200 https://registry.npmjs.org/vosk/-/vosk-0.3.39.tgz 1124ms (cache miss)
+344 info run ffi-napi@4.0.3 install node_modules/ffi-napi node-gyp-build
+345 info run ref-napi@3.0.3 install node_modules/ref-napi node-gyp-build
+346 info run ffi-napi@4.0.3 install { code: 1, signal: null }
+347 info run ref-napi@3.0.3 install { code: 7, signal: null }
+348 verbose stack Error: command failed
+348 verbose stack     at promiseSpawn (/opt/homebrew/lib/node_modules/npm/node_modules/@npmcli/promise-spawn/lib/index.js:22:22)
+348 verbose stack     at spawnWithShell (/opt/homebrew/lib/node_modules/npm/node_modules/@npmcli/promise-spawn/lib/index.js:124:10)
+348 verbose stack     at promiseSpawn (/opt/homebrew/lib/node_modules/npm/node_modules/@npmcli/promise-spawn/lib/index.js:12:12)
+348 verbose stack     at runScriptPkg (/opt/homebrew/lib/node_modules/npm/node_modules/@npmcli/run-script/lib/run-script-pkg.js:79:13)
+348 verbose stack     at runScript (/opt/homebrew/lib/node_modules/npm/node_modules/@npmcli/run-script/lib/run-script.js:9:12)
+348 verbose stack     at /opt/homebrew/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/rebuild.js:331:17
+348 verbose stack     at run (/opt/homebrew/lib/node_modules/npm/node_modules/promise-call-limit/dist/commonjs/index.js:67:22)
+348 verbose stack     at /opt/homebrew/lib/node_modules/npm/node_modules/promise-call-limit/dist/commonjs/index.js:84:9
+348 verbose stack     at new Promise (<anonymous>)
+348 verbose stack     at callLimit (/opt/homebrew/lib/node_modules/npm/node_modules/promise-call-limit/dist/commonjs/index.js:35:69)
+349 verbose pkgid ffi-napi@4.0.3
+350 error code 1
+351 error path /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/ffi-napi
+352 error command failed
+353 error command sh -c node-gyp-build
+354 error CC(target) Release/obj.target/nothing/../node-addon-api/nothing.o
+354 error   LIBTOOL-STATIC Release/nothing.a
+354 error   CC(target) Release/obj.target/ffi/deps/libffi/src/prep_cif.o
+354 error   CC(target) Release/obj.target/ffi/deps/libffi/src/types.o
+354 error   CC(target) Release/obj.target/ffi/deps/libffi/src/raw_api.o
+354 error   CC(target) Release/obj.target/ffi/deps/libffi/src/java_raw_api.o
+354 error   CC(target) Release/obj.target/ffi/deps/libffi/src/closures.o
+354 error   CC(target) Release/obj.target/ffi/deps/libffi/src/aarch64/ffi.o
+354 error   CC(target) Release/obj.target/ffi/deps/libffi/src/aarch64/sysv.o
+354 error   LIBTOOL-STATIC Release/libffi.a
+354 error   CXX(target) Release/obj.target/ffi_bindings/src/ffi.o
+355 error gyp info it worked if it ends with ok
+355 error gyp info using node-gyp@11.2.0
+355 error gyp info using node@24.6.0 | darwin | arm64
+355 error gyp info find Python using Python version 3.13.6 found at "/Library/Frameworks/Python.framework/Versions/3.13/bin/python3"
+355 error gyp http GET https://nodejs.org/download/release/v24.6.0/node-v24.6.0-headers.tar.gz
+355 error gyp http 200 https://nodejs.org/download/release/v24.6.0/node-v24.6.0-headers.tar.gz
+355 error gyp http GET https://nodejs.org/download/release/v24.6.0/SHASUMS256.txt
+355 error gyp http 200 https://nodejs.org/download/release/v24.6.0/SHASUMS256.txt
+355 error gyp info spawn /Library/Frameworks/Python.framework/Versions/3.13/bin/python3
+355 error gyp info spawn args [
+355 error gyp info spawn args '/opt/homebrew/lib/node_modules/npm/node_modules/node-gyp/gyp/gyp_main.py',
+355 error gyp info spawn args 'binding.gyp',
+355 error gyp info spawn args '-f',
+355 error gyp info spawn args 'make',
+355 error gyp info spawn args '-I',
+355 error gyp info spawn args '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/ffi-napi/build/config.gypi',
+355 error gyp info spawn args '-I',
+355 error gyp info spawn args '/opt/homebrew/lib/node_modules/npm/node_modules/node-gyp/addon.gypi',
+355 error gyp info spawn args '-I',
+355 error gyp info spawn args '/Users/meghanarendrasimha/Library/Caches/node-gyp/24.6.0/include/node/common.gypi',
+355 error gyp info spawn args '-Dlibrary=shared_library',
+355 error gyp info spawn args '-Dvisibility=default',
+355 error gyp info spawn args '-Dnode_root_dir=/Users/meghanarendrasimha/Library/Caches/node-gyp/24.6.0',
+355 error gyp info spawn args '-Dnode_gyp_dir=/opt/homebrew/lib/node_modules/npm/node_modules/node-gyp',
+355 error gyp info spawn args '-Dnode_lib_file=/Users/meghanarendrasimha/Library/Caches/node-gyp/24.6.0/<(target_arch)/node.lib',
+355 error gyp info spawn args '-Dmodule_root_dir=/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/ffi-napi',
+355 error gyp info spawn args '-Dnode_engine=v8',
+355 error gyp info spawn args '--depth=.',
+355 error gyp info spawn args '--no-parallel',
+355 error gyp info spawn args '--generator-output',
+355 error gyp info spawn args 'build',
+355 error gyp info spawn args '-Goutput_dir=.'
+355 error gyp info spawn args ]
+355 error gyp info spawn make
+355 error gyp info spawn args [ 'BUILDTYPE=Release', '-C', 'build' ]
+355 error warning: /Library/Developer/CommandLineTools/usr/bin/libtool: archive library: Release/nothing.a the table of contents is empty (no object file members in the library define global symbols)
+355 error ../deps/libffi/src/java_raw_api.c:328:46: warning: 'ffi_java_raw_size' is deprecated [-Wdeprecated-declarations]
+355 error   328 |   ffi_java_raw *raw = (ffi_java_raw*)alloca (ffi_java_raw_size (cif));
+355 error       |                                              ^
+355 error ../deps/libffi/config/mac/arm64/ffi.h:299:56: note: 'ffi_java_raw_size' has been explicitly marked deprecated here
+355 error   299 | size_t ffi_java_raw_size (ffi_cif *cif) __attribute__((deprecated));
+355 error       |                                                        ^
+355 error ../deps/libffi/src/java_raw_api.c:331:3: warning: 'ffi_java_ptrarray_to_raw' is deprecated [-Wdeprecated-declarations]
+355 error   331 |   ffi_java_ptrarray_to_raw (cif, avalue, raw);
+355 error       |   ^
+355 error ../deps/libffi/config/mac/arm64/ffi.h:295:93: note: 'ffi_java_ptrarray_to_raw' has been explicitly marked deprecated here
+355 error   295 | void ffi_java_ptrarray_to_raw (ffi_cif *cif, void **args, ffi_java_raw *raw) __attribute__((deprecated));
+355 error       |                                                                                             ^
+355 error 2 warnings generated.
+355 error ../deps/libffi/src/aarch64/ffi.c:738:17: warning: comparison of integers of different signs: 'int' and 'unsigned int' [-Wsign-compare]
+355 error   738 |       if (i + 1 == cif->aarch64_nfixedargs)
+355 error       |           ~~~~~ ^  ~~~~~~~~~~~~~~~~~~~~~~~
+355 error ../deps/libffi/src/aarch64/ffi.c:991:17: warning: comparison of integers of different signs: 'int' and 'unsigned int' [-Wsign-compare]
+355 error   991 |       if (i + 1 == cif->aarch64_nfixedargs)
+355 error       |           ~~~~~ ^  ~~~~~~~~~~~~~~~~~~~~~~~
+355 error 2 warnings generated.
+355 error In file included from ../src/ffi.cc:5:
+355 error /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/get-uv-event-loop-napi-h/include/get-uv-event-loop-napi.h:26:30: error: incompatible function pointer types assigning to 'get_uv_event_loop_fn' (aka 'napi_status (*)(napi_env__ *, uv_loop_s **)') from 'napi_status (*)(node_api_basic_env, struct uv_loop_s **)' (aka 'napi_status (*)(const napi_env__ *, uv_loop_s **)')
+355 error    26 |   napi_get_uv_event_loop__ = &napi_get_uv_event_loop;
+355 error       |                              ^~~~~~~~~~~~~~~~~~~~~~~
+355 error In file included from ../src/ffi.cc:3:
+355 error In file included from ../src/ffi.h:2:
+355 error In file included from /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/node-addon-api/napi.h:2725:
+355 error /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/node-addon-api/napi-inl.h:63:12: error: no matching function for call to 'napi_add_finalizer'
+355 error    63 |   status = napi_add_finalizer(env, obj, data, finalizer, hint, nullptr);
+355 error       |            ^~~~~~~~~~~~~~~~~~
+355 error /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/node-addon-api/napi-inl.h:1965:29: note: in instantiation of function template specialization 'Napi::details::AttachData<Napi::details::CallbackData<Napi::Value (*)(const Napi::CallbackInfo &), Napi::Value>>' requested here
+355 error  1965 |     status = Napi::details::AttachData(env, *result, data);
+355 error       |                             ^
+355 error /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/node-addon-api/napi-inl.h:2021:24: note: in instantiation of function template specialization 'Napi::CreateFunction<Napi::details::CallbackData<Napi::Value (*)(const Napi::CallbackInfo &), Napi::Value>>' requested here
+355 error  2021 |   napi_status status = CreateFunction(env,
+355 error       |                        ^
+355 error ../src/ffi.cc:58:38: note: in instantiation of function template specialization 'Napi::Function::New<Napi::Value (*)(const Napi::CallbackInfo &)>' requested here
+355 error    58 |   target["ffi_prep_cif"] = Function::New(env, FFIPrepCif);
+355 error       |                                      ^
+355 error /Users/meghanarendrasimha/Library/Caches/node-gyp/24.6.0/include/node/js_native_api.h:521:1: note: candidate function not viable: no known conversion from 'napi_finalize' (aka 'void (*)(napi_env__ *, void *, void *)') to 'node_api_basic_finalize' (aka 'void (*)(const napi_env__ *, void *, void *)') for 4th argument
+355 error   521 | napi_add_finalizer(napi_env env,
+355 error       | ^
+355 error   522 |                    napi_value js_object,
+355 error   523 |                    void* finalize_data,
+355 error   524 |                    node_api_basic_finalize finalize_cb,
+355 error       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+355 error In file included from ../src/ffi.cc:3:
+355 error In file included from ../src/ffi.h:2:
+355 error In file included from /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/node-addon-api/napi.h:2725:
+355 error /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/node-addon-api/napi-inl.h:63:12: error: no matching function for call to 'napi_add_finalizer'
+355 error    63 |   status = napi_add_finalizer(env, obj, data, finalizer, hint, nullptr);
+355 error       |            ^~~~~~~~~~~~~~~~~~
+355 error /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/node-addon-api/napi-inl.h:1965:29: note: in instantiation of function template specialization 'Napi::details::AttachData<Napi::details::CallbackData<void (*)(const Napi::CallbackInfo &), void>>' requested here
+355 error  1965 |     status = Napi::details::AttachData(env, *result, data);
+355 error       |                             ^
+355 error /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/node-addon-api/napi-inl.h:2021:24: note: in instantiation of function template specialization 'Napi::CreateFunction<Napi::details::CallbackData<void (*)(const Napi::CallbackInfo &), void>>' requested here
+355 error  2021 |   napi_status status = CreateFunction(env,
+355 error       |                        ^
+355 error ../src/ffi.cc:60:34: note: in instantiation of function template specialization 'Napi::Function::New<void (*)(const Napi::CallbackInfo &)>' requested here
+355 error    60 |   target["ffi_call"] = Function::New(env, FFICall);
+355 error       |                                  ^
+355 error /Users/meghanarendrasimha/Library/Caches/node-gyp/24.6.0/include/node/js_native_api.h:521:1: note: candidate function not viable: no known conversion from 'napi_finalize' (aka 'void (*)(napi_env__ *, void *, void *)') to 'node_api_basic_finalize' (aka 'void (*)(const napi_env__ *, void *, void *)') for 4th argument
+355 error   521 | napi_add_finalizer(napi_env env,
+355 error       | ^
+355 error   522 |                    napi_value js_object,
+355 error   523 |                    void* finalize_data,
+355 error   524 |                    node_api_basic_finalize finalize_cb,
+355 error       |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+355 error 3 errors generated.
+355 error make: *** [Release/obj.target/ffi_bindings/src/ffi.o] Error 1
+355 error gyp ERR! build error 
+355 error gyp ERR! stack Error: `make` failed with exit code: 2
+355 error gyp ERR! stack at ChildProcess.<anonymous> (/opt/homebrew/lib/node_modules/npm/node_modules/node-gyp/lib/build.js:219:23)
+355 error gyp ERR! System Darwin 24.6.0
+355 error gyp ERR! command "/opt/homebrew/Cellar/node/24.6.0/bin/node" "/opt/homebrew/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js" "rebuild"
+355 error gyp ERR! cwd /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/ffi-napi
+355 error gyp ERR! node -v v24.6.0
+355 error gyp ERR! node-gyp -v v11.2.0
+355 error gyp ERR! not ok
+356 silly unfinished npm timer reify 1759514849129
+357 silly unfinished npm timer reify:build 1759514851009
+358 silly unfinished npm timer build 1759514851010
+359 silly unfinished npm timer build:deps 1759514851010
+360 silly unfinished npm timer build:run:install 1759514851014
+361 silly unfinished npm timer build:run:install:node_modules/ffi-napi 1759514851014
+362 silly unfinished npm timer build:run:install:node_modules/ref-napi 1759514851016
+363 verbose cwd /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app
+364 verbose os Darwin 24.6.0
+365 verbose node v24.6.0
+366 verbose npm  v11.5.1
+367 verbose exit 1
+368 verbose code 1
+369 error A complete log of this run can be found in: /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/.npm-cache/_logs/2025-10-03T18_07_29_013Z-debug-0.log

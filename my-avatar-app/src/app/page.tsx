@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useMemo } from "react";
 
 export default function Home() {
   const [message, setMessage] = useState("");
@@ -11,6 +12,11 @@ export default function Home() {
   const [statusText, setStatusText] = useState<string | null>(null);
   const [avatarId, setAvatarId] = useState<string>("");
   const [voiceId, setVoiceId] = useState<string>("");
+  const [availableAvatars, setAvailableAvatars] = useState<Array<{ avatar_id: string; pose_name?: string; normal_preview?: string }>>([]);
+  const [youtubeUrl, setYoutubeUrl] = useState<string>("");
+  const [transcript, setTranscript] = useState<string>("");
+  const [summary, setSummary] = useState<string>("");
+  const [streaming, setStreaming] = useState(false);
   const pollTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   const clearPoll = () => {
@@ -22,6 +28,19 @@ export default function Home() {
 
   useEffect(() => {
     return () => clearPoll();
+  }, []);
+
+  useEffect(() => {
+    // Load streaming avatars
+    (async () => {
+      try {
+        const resp = await fetch("/api/streaming_avatars", { cache: "no-store" });
+        const data = await resp.json();
+        if (!resp.ok) return;
+        const items = Array.isArray(data?.data) ? data.data : [];
+        setAvailableAvatars(items);
+      } catch {}
+    })();
   }, []);
 
   const pollStatus = useCallback((id: string) => {
@@ -100,6 +119,81 @@ export default function Home() {
     }
   }, [message, pollStatus]);
 
+  const onTranscribe = useCallback(async () => {
+    if (!youtubeUrl.trim()) return;
+    setTranscript("");
+    setSummary("");
+    try {
+      const resp = await fetch("/api/transcribe_youtube", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ youtube_url: youtubeUrl.trim() }),
+      });
+      const data = await resp.json();
+      if (!resp.ok) {
+        setTranscript(`Error: ${data?.error || "Failed to transcribe"}`);
+        return;
+      }
+      setTranscript(String(data?.transcript || ""));
+    } catch (e) {
+      setTranscript("Network error while transcribing");
+    }
+  }, [youtubeUrl]);
+
+  const onSummarize = useCallback(async () => {
+    if (!transcript.trim()) return;
+    setSummary("");
+    try {
+      const resp = await fetch("/api/summarize", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text: transcript, max_sentences: 6 }),
+      });
+      const data = await resp.json();
+      if (!resp.ok) {
+        setSummary(`Error: ${data?.error || "Failed to summarize"}`);
+        return;
+      }
+      setSummary(String(data?.summary || ""));
+    } catch (e) {
+      setSummary("Network error while summarizing");
+    }
+  }, [transcript]);
+
+  const onStartStreaming = useCallback(async () => {
+    if (!summary.trim()) return;
+    setStreaming(true);
+    setVideoId(null);
+    setVideoUrl(null);
+    setStatusText(null);
+    try {
+      const resp = await fetch("/api/generate_video", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          text: summary,
+          ...(avatarId ? { avatar_id: avatarId } : {}),
+          ...(voiceId ? { voice_id: voiceId } : {}),
+        }),
+      });
+      const data = await resp.json();
+      if (!resp.ok) {
+        const heygenDetails = data?.details ? `\nDetails: ${JSON.stringify(data.details)}` : "";
+        alert(`Generate video error: ${data?.error || "Unknown"}${heygenDetails}`);
+        setStreaming(false);
+        return;
+      }
+      if (data?.video_id) {
+        setVideoId(data.video_id);
+        pollStatus(data.video_id);
+      }
+    } catch (e) {
+      alert("Network error generating video");
+    } finally {
+      setStreaming(false);
+    }
+  }, [summary, avatarId, voiceId]);
+
   return (
     <div className="max-w-xl mx-auto p-6">
       <h1 className="text-2xl font-semibold mb-4">HeyGen Gemini Demo</h1>
@@ -112,13 +206,18 @@ export default function Home() {
           className="w-full border rounded px-3 py-2"
         />
         <div className="flex gap-2">
-          <input
-            type="text"
+          <select
             value={avatarId}
             onChange={(e) => setAvatarId(e.target.value)}
-            placeholder="Optional avatar_id"
             className="flex-1 border rounded px-3 py-2"
-          />
+          >
+            <option value="">Default avatar (env)</option>
+            {availableAvatars.map((a) => (
+              <option key={a.avatar_id} value={a.avatar_id}>
+                {a.pose_name || a.avatar_id}
+              </option>
+            ))}
+          </select>
           <input
             type="text"
             value={voiceId}
@@ -152,6 +251,52 @@ export default function Home() {
 
       {videoUrl && (
         <video src={videoUrl} controls className="w-full rounded border" />
+      )}
+
+      <hr className="my-6" />
+      <h2 className="text-xl font-semibold mb-2">YouTube → Whisper → Summary → Stream Avatar</h2>
+      <div className="flex flex-col gap-2 mb-3">
+        <input
+          type="text"
+          value={youtubeUrl}
+          onChange={(e) => setYoutubeUrl(e.target.value)}
+          placeholder="Paste YouTube URL"
+          className="w-full border rounded px-3 py-2"
+        />
+        <div className="flex gap-2">
+          <button
+            onClick={onTranscribe}
+            className="border rounded px-4 py-2 bg-black text-white"
+          >
+            Transcribe
+          </button>
+          <button
+            onClick={onSummarize}
+            className="border rounded px-4 py-2 bg-black text-white disabled:opacity-50"
+            disabled={!transcript.trim()}
+          >
+            Summarize
+          </button>
+          <button
+            onClick={onStartStreaming}
+            className="border rounded px-4 py-2 bg-black text-white disabled:opacity-50"
+            disabled={!summary.trim() || streaming}
+          >
+            {streaming ? "Starting..." : "Stream Avatar"}
+          </button>
+        </div>
+      </div>
+      {transcript && (
+        <div className="mb-4">
+          <div className="font-medium mb-1">Transcript</div>
+          <div className="whitespace-pre-wrap border rounded p-3 max-h-60 overflow-auto">{transcript}</div>
+        </div>
+      )}
+      {summary && (
+        <div className="mb-4">
+          <div className="font-medium mb-1">Summary</div>
+          <div className="whitespace-pre-wrap border rounded p-3">{summary}</div>
+        </div>
       )}
     </div>
   );
