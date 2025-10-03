@@ -1,0 +1,470 @@
+0 verbose cli /opt/homebrew/Cellar/node/24.6.0/bin/node /opt/homebrew/bin/npm
+1 info using npm@11.5.1
+2 info using node@v24.6.0
+3 silly config load:file:/opt/homebrew/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/.npmrc
+5 silly config load:file:/Users/meghanarendrasimha/.npmrc
+6 silly config load:file:/opt/homebrew/etc/npmrc
+7 verbose title npm install
+8 verbose argv "install" "--cache" ".npm-cache"
+9 verbose logfile logs-max:10 dir:/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/.npm-cache/_logs/2025-10-03T23_10_35_080Z-
+10 verbose logfile /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/.npm-cache/_logs/2025-10-03T23_10_35_080Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:4496293888 maxSize:1124073472 maxEntrySize:562036736
+13 silly idealTree buildDeps
+14 verbose shrinkwrap failed to load node_modules/.package-lock.json out of date, updated: node_modules
+15 silly reify mark retired [
+15 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/ref-napi'
+15 silly reify ]
+16 silly reify moves {
+16 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/ref-napi': '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/.ref-napi-SqMFM0XK'
+16 silly reify }
+17 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-wasm32-wasi
+18 silly reify mark deleted [
+18 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-wasm32-wasi'
+18 silly reify ]
+19 silly audit bulk request {
+19 silly audit   '@alloc/quick-lru': [ '5.2.0' ],
+19 silly audit   '@bufbuild/protobuf': [ '1.10.1' ],
+19 silly audit   '@cfworker/json-schema': [ '4.1.1' ],
+19 silly audit   '@emnapi/runtime': [ '1.5.0' ],
+19 silly audit   '@google/generative-ai': [ '0.24.1' ],
+19 silly audit   '@heygen/streaming-avatar': [ '2.1.0' ],
+19 silly audit   '@livekit/protocol': [ '1.36.1', '1.42.0' ],
+19 silly audit   'livekit-client': [ '2.11.3', '2.15.8' ],
+19 silly audit   '@img/colour': [ '1.0.0' ],
+19 silly audit   '@img/sharp-darwin-arm64': [ '0.34.4' ],
+19 silly audit   '@img/sharp-darwin-x64': [ '0.34.4' ],
+19 silly audit   '@img/sharp-libvips-darwin-arm64': [ '1.2.3' ],
+19 silly audit   '@img/sharp-libvips-darwin-x64': [ '1.2.3' ],
+19 silly audit   '@img/sharp-libvips-linux-arm': [ '1.2.3' ],
+19 silly audit   '@img/sharp-libvips-linux-arm64': [ '1.2.3' ],
+19 silly audit   '@img/sharp-libvips-linux-ppc64': [ '1.2.3' ],
+19 silly audit   '@img/sharp-libvips-linux-s390x': [ '1.2.3' ],
+19 silly audit   '@img/sharp-libvips-linux-x64': [ '1.2.3' ],
+19 silly audit   '@img/sharp-libvips-linuxmusl-arm64': [ '1.2.3' ],
+19 silly audit   '@img/sharp-libvips-linuxmusl-x64': [ '1.2.3' ],
+19 silly audit   '@img/sharp-linux-arm': [ '0.34.4' ],
+19 silly audit   '@img/sharp-linux-arm64': [ '0.34.4' ],
+19 silly audit   '@img/sharp-linux-ppc64': [ '0.34.4' ],
+19 silly audit   '@img/sharp-linux-s390x': [ '0.34.4' ],
+19 silly audit   '@img/sharp-linux-x64': [ '0.34.4' ],
+19 silly audit   '@img/sharp-linuxmusl-arm64': [ '0.34.4' ],
+19 silly audit   '@img/sharp-linuxmusl-x64': [ '0.34.4' ],
+19 silly audit   '@img/sharp-wasm32': [ '0.34.4' ],
+19 silly audit   '@img/sharp-win32-arm64': [ '0.34.4' ],
+19 silly audit   '@img/sharp-win32-ia32': [ '0.34.4' ],
+19 silly audit   '@img/sharp-win32-x64': [ '0.34.4' ],
+19 silly audit   '@isaacs/fs-minipass': [ '4.0.1' ],
+19 silly audit   '@jridgewell/gen-mapping': [ '0.3.13' ],
+19 silly audit   '@jridgewell/remapping': [ '2.3.5' ],
+19 silly audit   '@jridgewell/resolve-uri': [ '3.1.2' ],
+19 silly audit   '@jridgewell/sourcemap-codec': [ '1.5.5' ],
+19 silly audit   '@jridgewell/trace-mapping': [ '0.3.31' ],
+19 silly audit   '@langchain/core': [ '0.3.78' ],
+19 silly audit   '@langchain/google-genai': [ '0.2.18' ],
+19 silly audit   uuid: [ '11.1.0', '10.0.0' ],
+19 silly audit   '@langchain/openai': [ '0.6.14' ],
+19 silly audit   openai: [ '5.12.2', '4.104.0' ],
+19 silly audit   '@langchain/textsplitters': [ '0.1.0' ],
+19 silly audit   '@livekit/mutex': [ '1.1.1' ],
+19 silly audit   '@next/env': [ '15.5.4' ],
+19 silly audit   '@next/swc-darwin-arm64': [ '15.5.4' ],
+19 silly audit   '@next/swc-darwin-x64': [ '15.5.4' ],
+19 silly audit   '@next/swc-linux-arm64-gnu': [ '15.5.4' ],
+19 silly audit   '@next/swc-linux-arm64-musl': [ '15.5.4' ],
+19 silly audit   '@next/swc-linux-x64-gnu': [ '15.5.4' ],
+19 silly audit   '@next/swc-linux-x64-musl': [ '15.5.4' ],
+19 silly audit   '@next/swc-win32-arm64-msvc': [ '15.5.4' ],
+19 silly audit   '@next/swc-win32-x64-msvc': [ '15.5.4' ],
+19 silly audit   '@protobufjs/aspromise': [ '1.1.2' ],
+19 silly audit   '@protobufjs/base64': [ '1.1.2' ],
+19 silly audit   '@protobufjs/codegen': [ '2.0.4' ],
+19 silly audit   '@protobufjs/eventemitter': [ '1.1.0' ],
+19 silly audit   '@protobufjs/fetch': [ '1.1.0' ],
+19 silly audit   '@protobufjs/float': [ '1.0.2' ],
+19 silly audit   '@protobufjs/inquire': [ '1.1.0' ],
+19 silly audit   '@protobufjs/path': [ '1.1.2' ],
+19 silly audit   '@protobufjs/pool': [ '1.1.0' ],
+19 silly audit   '@protobufjs/utf8': [ '1.1.0' ],
+19 silly audit   '@swc/helpers': [ '0.5.15' ],
+19 silly audit   '@tailwindcss/node': [ '4.1.14' ],
+19 silly audit   '@tailwindcss/oxide': [ '4.1.14' ],
+19 silly audit   '@tailwindcss/oxide-android-arm64': [ '4.1.14' ],
+19 silly audit   '@tailwindcss/oxide-darwin-arm64': [ '4.1.14' ],
+19 silly audit   '@tailwindcss/oxide-darwin-x64': [ '4.1.14' ],
+19 silly audit   '@tailwindcss/oxide-freebsd-x64': [ '4.1.14' ],
+19 silly audit   '@tailwindcss/oxide-linux-arm-gnueabihf': [ '4.1.14' ],
+19 silly audit   '@tailwindcss/oxide-linux-arm64-gnu': [ '4.1.14' ],
+19 silly audit   '@tailwindcss/oxide-linux-arm64-musl': [ '4.1.14' ],
+19 silly audit   '@tailwindcss/oxide-linux-x64-gnu': [ '4.1.14' ],
+19 silly audit   '@tailwindcss/oxide-linux-x64-musl': [ '4.1.14' ],
+19 silly audit   '@tailwindcss/oxide-win32-arm64-msvc': [ '4.1.14' ],
+19 silly audit   '@tailwindcss/oxide-win32-x64-msvc': [ '4.1.14' ],
+19 silly audit   '@tailwindcss/postcss': [ '4.1.14' ],
+19 silly audit   '@types/dom-mediacapture-record': [ '1.0.22' ],
+19 silly audit   '@types/node': [ '20.19.19', '18.19.129' ],
+19 silly audit   '@types/node-fetch': [ '2.6.13' ],
+19 silly audit   '@types/react': [ '19.1.17' ],
+19 silly audit   '@types/react-dom': [ '19.1.11' ],
+19 silly audit   '@types/retry': [ '0.12.0' ],
+19 silly audit   '@types/uuid': [ '10.0.0' ],
+19 silly audit   'abort-controller': [ '3.0.0' ],
+19 silly audit   agentkeepalive: [ '4.6.0' ],
+19 silly audit   'ansi-styles': [ '5.2.0', '4.3.0' ],
+19 silly audit   argparse: [ '2.0.1' ],
+19 silly audit   asynckit: [ '0.4.0' ],
+19 silly audit   'base64-js': [ '1.5.1' ],
+19 silly audit   'call-bind-apply-helpers': [ '1.0.2' ],
+19 silly audit   camelcase: [ '6.3.0' ],
+19 silly audit   'caniuse-lite': [ '1.0.30001746' ],
+19 silly audit   chalk: [ '4.1.2' ],
+19 silly audit   chownr: [ '3.0.0' ],
+19 silly audit   'client-only': [ '0.0.1' ],
+19 silly audit   'color-convert': [ '2.0.1' ],
+19 silly audit   'color-name': [ '1.1.4' ],
+19 silly audit   'combined-stream': [ '1.0.8' ],
+19 silly audit   'console-table-printer': [ '2.14.6' ],
+19 silly audit   csstype: [ '3.1.3' ],
+19 silly audit   decamelize: [ '1.2.0' ],
+19 silly audit   'delayed-stream': [ '1.0.0' ],
+19 silly audit   'detect-libc': [ '2.1.1' ],
+19 silly audit   'dunder-proto': [ '1.0.1' ],
+19 silly audit   'enhanced-resolve': [ '5.18.3' ],
+19 silly audit   'es-define-property': [ '1.0.1' ],
+19 silly audit   'es-errors': [ '1.3.0' ],
+19 silly audit   'es-object-atoms': [ '1.1.1' ],
+19 silly audit   'es-set-tostringtag': [ '2.1.0' ],
+19 silly audit   'event-target-shim': [ '5.0.1' ],
+19 silly audit   eventemitter3: [ '4.0.7' ],
+19 silly audit   events: [ '3.3.0' ],
+19 silly audit   'form-data': [ '4.0.4' ],
+19 silly audit   'form-data-encoder': [ '1.7.2' ],
+19 silly audit   'formdata-node': [ '4.4.1' ],
+19 silly audit   'function-bind': [ '1.1.2' ],
+19 silly audit   'get-intrinsic': [ '1.3.0' ],
+19 silly audit   'get-proto': [ '1.0.1' ],
+19 silly audit   gopd: [ '1.2.0' ],
+19 silly audit   'graceful-fs': [ '4.2.11' ],
+19 silly audit   'has-flag': [ '4.0.0' ],
+19 silly audit   'has-symbols': [ '1.1.0' ],
+19 silly audit   'has-tostringtag': [ '1.0.2' ],
+19 silly audit   hasown: [ '2.0.2' ],
+19 silly audit   'humanize-ms': [ '1.2.1' ],
+19 silly audit   jiti: [ '2.6.1' ],
+19 silly audit   jose: [ '6.1.0' ],
+19 silly audit   'js-tiktoken': [ '1.0.21' ],
+19 silly audit   'js-yaml': [ '4.1.0' ],
+19 silly audit   jsonpointer: [ '5.0.1' ],
+19 silly audit   langchain: [ '0.3.35' ],
+19 silly audit   langsmith: [ '0.3.71' ],
+19 silly audit   lightningcss: [ '1.30.1' ],
+19 silly audit   'lightningcss-darwin-arm64': [ '1.30.1' ],
+19 silly audit   'lightningcss-darwin-x64': [ '1.30.1' ],
+19 silly audit   'lightningcss-freebsd-x64': [ '1.30.1' ],
+19 silly audit   'lightningcss-linux-arm-gnueabihf': [ '1.30.1' ],
+19 silly audit   'lightningcss-linux-arm64-gnu': [ '1.30.1' ],
+19 silly audit   'lightningcss-linux-arm64-musl': [ '1.30.1' ],
+19 silly audit   'lightningcss-linux-x64-gnu': [ '1.30.1' ],
+19 silly audit   'lightningcss-linux-x64-musl': [ '1.30.1' ],
+19 silly audit   'lightningcss-win32-arm64-msvc': [ '1.30.1' ],
+19 silly audit   'lightningcss-win32-x64-msvc': [ '1.30.1' ],
+19 silly audit   loglevel: [ '1.9.2' ],
+19 silly audit   long: [ '5.3.2' ],
+19 silly audit   m3u8stream: [ '0.8.6' ],
+19 silly audit   'magic-string': [ '0.30.19' ],
+19 silly audit   'math-intrinsics': [ '1.1.0' ],
+19 silly audit   'mime-db': [ '1.52.0' ],
+19 silly audit   'mime-types': [ '2.1.35' ],
+19 silly audit   miniget: [ '4.2.3' ],
+19 silly audit   minipass: [ '7.1.2' ],
+19 silly audit   minizlib: [ '3.1.0' ],
+19 silly audit   ms: [ '2.1.3' ],
+19 silly audit   mustache: [ '4.2.0' ],
+19 silly audit   nanoid: [ '3.3.11' ],
+19 silly audit   next: [ '15.5.4' ],
+19 silly audit   postcss: [ '8.4.31', '8.5.6' ],
+19 silly audit   'node-domexception': [ '1.0.0' ],
+19 silly audit   'node-fetch': [ '2.7.0' ],
+19 silly audit   'undici-types': [ '5.26.5', '6.21.0' ],
+19 silly audit   'openapi-types': [ '12.1.3' ],
+19 silly audit   'p-finally': [ '1.0.0' ],
+19 silly audit   'p-queue': [ '6.6.2' ],
+19 silly audit   'p-retry': [ '4.6.2' ],
+19 silly audit   'p-timeout': [ '3.2.0' ],
+19 silly audit   picocolors: [ '1.1.1' ],
+19 silly audit   protobufjs: [ '7.5.0' ],
+19 silly audit   react: [ '19.1.0' ],
+19 silly audit   'react-dom': [ '19.1.0' ],
+19 silly audit   retry: [ '0.13.1' ],
+19 silly audit   rxjs: [ '7.8.2' ],
+19 silly audit   sax: [ '1.4.1' ],
+19 silly audit   scheduler: [ '0.26.0' ],
+19 silly audit   sdp: [ '3.2.1' ],
+19 silly audit   'sdp-transform': [ '2.15.0' ],
+19 silly audit   semver: [ '7.7.2' ],
+19 silly audit   sharp: [ '0.34.4' ],
+19 silly audit   'simple-wcswidth': [ '1.1.2' ],
+19 silly audit   'source-map-js': [ '1.2.1' ],
+19 silly audit   'styled-jsx': [ '5.1.6' ],
+19 silly audit   'supports-color': [ '7.2.0' ],
+19 silly audit   tailwindcss: [ '4.1.14' ],
+19 silly audit   tapable: [ '2.2.3' ],
+19 silly audit   tar: [ '7.5.1' ],
+19 silly audit   tr46: [ '0.0.3' ],
+19 silly audit   'ts-debounce': [ '4.0.0' ],
+19 silly audit   tslib: [ '2.8.1' ],
+19 silly audit   'typed-emitter': [ '2.1.0' ],
+19 silly audit   typescript: [ '5.9.3' ],
+19 silly audit   'web-streams-polyfill': [ '4.0.0-beta.3' ],
+19 silly audit   'webidl-conversions': [ '3.0.1' ],
+19 silly audit   'webrtc-adapter': [ '9.0.3' ],
+19 silly audit   'webrtc-issue-detector': [ '1.16.3' ],
+19 silly audit   'whatwg-url': [ '5.0.0' ],
+19 silly audit   yallist: [ '5.0.0' ],
+19 silly audit   yaml: [ '2.8.1' ],
+19 silly audit   'ytdl-core': [ '4.11.5' ],
+19 silly audit   zod: [ '3.25.76' ],
+19 silly audit   'zod-to-json-schema': [ '3.24.6' ],
+19 silly audit   '@tailwindcss/oxide-wasm32-wasi': [ '4.1.14' ]
+19 silly audit }
+20 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/lightningcss-win32-x64-msvc
+21 silly reify mark deleted [
+21 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/lightningcss-win32-x64-msvc'
+21 silly reify ]
+22 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/lightningcss-win32-arm64-msvc
+23 silly reify mark deleted [
+23 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/lightningcss-win32-arm64-msvc'
+23 silly reify ]
+24 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/lightningcss-linux-x64-musl
+25 silly reify mark deleted [
+25 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/lightningcss-linux-x64-musl'
+25 silly reify ]
+26 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/lightningcss-linux-x64-gnu
+27 silly reify mark deleted [
+27 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/lightningcss-linux-x64-gnu'
+27 silly reify ]
+28 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/lightningcss-linux-arm64-musl
+29 silly reify mark deleted [
+29 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/lightningcss-linux-arm64-musl'
+29 silly reify ]
+30 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/lightningcss-linux-arm64-gnu
+31 silly reify mark deleted [
+31 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/lightningcss-linux-arm64-gnu'
+31 silly reify ]
+32 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/lightningcss-linux-arm-gnueabihf
+33 silly reify mark deleted [
+33 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/lightningcss-linux-arm-gnueabihf'
+33 silly reify ]
+34 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/lightningcss-freebsd-x64
+35 silly reify mark deleted [
+35 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/lightningcss-freebsd-x64'
+35 silly reify ]
+36 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/lightningcss-darwin-x64
+37 silly reify mark deleted [
+37 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/lightningcss-darwin-x64'
+37 silly reify ]
+38 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-win32-x64-msvc
+39 silly reify mark deleted [
+39 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-win32-x64-msvc'
+39 silly reify ]
+40 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-win32-arm64-msvc
+41 silly reify mark deleted [
+41 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-win32-arm64-msvc'
+41 silly reify ]
+42 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-linux-x64-musl
+43 silly reify mark deleted [
+43 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-linux-x64-musl'
+43 silly reify ]
+44 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-linux-x64-gnu
+45 silly reify mark deleted [
+45 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-linux-x64-gnu'
+45 silly reify ]
+46 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-linux-arm64-musl
+47 silly reify mark deleted [
+47 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-linux-arm64-musl'
+47 silly reify ]
+48 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-linux-arm64-gnu
+49 silly reify mark deleted [
+49 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-linux-arm64-gnu'
+49 silly reify ]
+50 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-linux-arm-gnueabihf
+51 silly reify mark deleted [
+51 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-linux-arm-gnueabihf'
+51 silly reify ]
+52 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-freebsd-x64
+53 silly reify mark deleted [
+53 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-freebsd-x64'
+53 silly reify ]
+54 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-darwin-x64
+55 silly reify mark deleted [
+55 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-darwin-x64'
+55 silly reify ]
+56 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-android-arm64
+57 silly reify mark deleted [
+57 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@tailwindcss/oxide-android-arm64'
+57 silly reify ]
+58 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@next/swc-win32-x64-msvc
+59 silly reify mark deleted [
+59 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@next/swc-win32-x64-msvc'
+59 silly reify ]
+60 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@next/swc-win32-arm64-msvc
+61 silly reify mark deleted [
+61 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@next/swc-win32-arm64-msvc'
+61 silly reify ]
+62 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@next/swc-linux-x64-musl
+63 silly reify mark deleted [
+63 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@next/swc-linux-x64-musl'
+63 silly reify ]
+64 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@next/swc-linux-x64-gnu
+65 silly reify mark deleted [
+65 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@next/swc-linux-x64-gnu'
+65 silly reify ]
+66 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@next/swc-linux-arm64-musl
+67 silly reify mark deleted [
+67 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@next/swc-linux-arm64-musl'
+67 silly reify ]
+68 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@next/swc-linux-arm64-gnu
+69 silly reify mark deleted [
+69 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@next/swc-linux-arm64-gnu'
+69 silly reify ]
+70 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@next/swc-darwin-x64
+71 silly reify mark deleted [
+71 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@next/swc-darwin-x64'
+71 silly reify ]
+72 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-win32-x64
+73 silly reify mark deleted [
+73 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-win32-x64'
+73 silly reify ]
+74 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-win32-ia32
+75 silly reify mark deleted [
+75 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-win32-ia32'
+75 silly reify ]
+76 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-win32-arm64
+77 silly reify mark deleted [
+77 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-win32-arm64'
+77 silly reify ]
+78 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-wasm32
+79 silly reify mark deleted [
+79 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-wasm32'
+79 silly reify ]
+80 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-linuxmusl-x64
+81 silly reify mark deleted [
+81 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-linuxmusl-x64'
+81 silly reify ]
+82 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-linuxmusl-arm64
+83 silly reify mark deleted [
+83 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-linuxmusl-arm64'
+83 silly reify ]
+84 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-linux-x64
+85 silly reify mark deleted [
+85 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-linux-x64'
+85 silly reify ]
+86 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-linux-s390x
+87 silly reify mark deleted [
+87 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-linux-s390x'
+87 silly reify ]
+88 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-linux-ppc64
+89 silly reify mark deleted [
+89 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-linux-ppc64'
+89 silly reify ]
+90 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-linux-arm64
+91 silly reify mark deleted [
+91 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-linux-arm64'
+91 silly reify ]
+92 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-linux-arm
+93 silly reify mark deleted [
+93 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-linux-arm'
+93 silly reify ]
+94 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-libvips-linuxmusl-x64
+95 silly reify mark deleted [
+95 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-libvips-linuxmusl-x64'
+95 silly reify ]
+96 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-libvips-linuxmusl-arm64
+97 silly reify mark deleted [
+97 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-libvips-linuxmusl-arm64'
+97 silly reify ]
+98 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-libvips-linux-x64
+99 silly reify mark deleted [
+99 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-libvips-linux-x64'
+99 silly reify ]
+100 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-libvips-linux-s390x
+101 silly reify mark deleted [
+101 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-libvips-linux-s390x'
+101 silly reify ]
+102 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-libvips-linux-ppc64
+103 silly reify mark deleted [
+103 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-libvips-linux-ppc64'
+103 silly reify ]
+104 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-libvips-linux-arm64
+105 silly reify mark deleted [
+105 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-libvips-linux-arm64'
+105 silly reify ]
+106 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-libvips-linux-arm
+107 silly reify mark deleted [
+107 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-libvips-linux-arm'
+107 silly reify ]
+108 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-libvips-darwin-x64
+109 silly reify mark deleted [
+109 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-libvips-darwin-x64'
+109 silly reify ]
+110 verbose reify failed optional dependency /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-darwin-x64
+111 silly reify mark deleted [
+111 silly reify   '/Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app/node_modules/@img/sharp-darwin-x64'
+111 silly reify ]
+112 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 135ms
+113 silly audit report {}
+114 silly ADD node_modules/lightningcss-win32-x64-msvc
+115 silly ADD node_modules/lightningcss-win32-arm64-msvc
+116 silly ADD node_modules/lightningcss-linux-x64-musl
+117 silly ADD node_modules/lightningcss-linux-x64-gnu
+118 silly ADD node_modules/lightningcss-linux-arm64-musl
+119 silly ADD node_modules/lightningcss-linux-arm64-gnu
+120 silly ADD node_modules/lightningcss-linux-arm-gnueabihf
+121 silly ADD node_modules/lightningcss-freebsd-x64
+122 silly ADD node_modules/lightningcss-darwin-x64
+123 silly ADD node_modules/@tailwindcss/oxide-win32-x64-msvc
+124 silly ADD node_modules/@tailwindcss/oxide-win32-arm64-msvc
+125 silly ADD node_modules/@tailwindcss/oxide-wasm32-wasi
+126 silly ADD node_modules/@tailwindcss/oxide-linux-x64-musl
+127 silly ADD node_modules/@tailwindcss/oxide-linux-x64-gnu
+128 silly ADD node_modules/@tailwindcss/oxide-linux-arm64-musl
+129 silly ADD node_modules/@tailwindcss/oxide-linux-arm64-gnu
+130 silly ADD node_modules/@tailwindcss/oxide-linux-arm-gnueabihf
+131 silly ADD node_modules/@tailwindcss/oxide-freebsd-x64
+132 silly ADD node_modules/@tailwindcss/oxide-darwin-x64
+133 silly ADD node_modules/@tailwindcss/oxide-android-arm64
+134 silly ADD node_modules/@next/swc-win32-x64-msvc
+135 silly ADD node_modules/@next/swc-win32-arm64-msvc
+136 silly ADD node_modules/@next/swc-linux-x64-musl
+137 silly ADD node_modules/@next/swc-linux-x64-gnu
+138 silly ADD node_modules/@next/swc-linux-arm64-musl
+139 silly ADD node_modules/@next/swc-linux-arm64-gnu
+140 silly ADD node_modules/@next/swc-darwin-x64
+141 silly ADD node_modules/@img/sharp-win32-x64
+142 silly ADD node_modules/@img/sharp-win32-ia32
+143 silly ADD node_modules/@img/sharp-win32-arm64
+144 silly ADD node_modules/@img/sharp-wasm32
+145 silly ADD node_modules/@img/sharp-linuxmusl-x64
+146 silly ADD node_modules/@img/sharp-linuxmusl-arm64
+147 silly ADD node_modules/@img/sharp-linux-x64
+148 silly ADD node_modules/@img/sharp-linux-s390x
+149 silly ADD node_modules/@img/sharp-linux-ppc64
+150 silly ADD node_modules/@img/sharp-linux-arm64
+151 silly ADD node_modules/@img/sharp-linux-arm
+152 silly ADD node_modules/@img/sharp-libvips-linuxmusl-x64
+153 silly ADD node_modules/@img/sharp-libvips-linuxmusl-arm64
+154 silly ADD node_modules/@img/sharp-libvips-linux-x64
+155 silly ADD node_modules/@img/sharp-libvips-linux-s390x
+156 silly ADD node_modules/@img/sharp-libvips-linux-ppc64
+157 silly ADD node_modules/@img/sharp-libvips-linux-arm64
+158 silly ADD node_modules/@img/sharp-libvips-linux-arm
+159 silly ADD node_modules/@img/sharp-libvips-darwin-x64
+160 silly ADD node_modules/@img/sharp-darwin-x64
+161 silly REMOVE node_modules/ref-napi
+162 verbose cwd /Users/meghanarendrasimha/Documents/HackathonPOC/my-avatar-app
+163 verbose os Darwin 24.6.0
+164 verbose node v24.6.0
+165 verbose npm  v11.5.1
+166 verbose exit 0
+167 info ok

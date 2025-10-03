@@ -1,22 +1,25 @@
 "use client";
-
 import { useCallback, useEffect, useRef, useState } from "react";
-import { useMemo } from "react";
+import { Loader2, Youtube, Brain, VideoIcon, Copy, CheckCircle } from "lucide-react";
 
 export default function Home() {
-  const [message, setMessage] = useState("");
-  const [submitting, setSubmitting] = useState(false);
+  const [message, setMessage] = useState<string>("");
+  const [submitting, setSubmitting] = useState<boolean>(false);
   const [reply, setReply] = useState<string | null>(null);
   const [videoId, setVideoId] = useState<string | null>(null);
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
   const [statusText, setStatusText] = useState<string | null>(null);
   const [avatarId, setAvatarId] = useState<string>("");
   const [voiceId, setVoiceId] = useState<string>("");
-  const [availableAvatars, setAvailableAvatars] = useState<Array<{ avatar_id: string; pose_name?: string; normal_preview?: string }>>([]);
+  const [availableAvatars, setAvailableAvatars] = useState<Array<{ avatar_id: string; name?: string }>>([]);
+  const [availableVoices, setAvailableVoices] = useState<Array<{ voice_id: string; name?: string }>>([]);
   const [youtubeUrl, setYoutubeUrl] = useState<string>("");
   const [transcript, setTranscript] = useState<string>("");
   const [summary, setSummary] = useState<string>("");
   const [streaming, setStreaming] = useState(false);
+  const [topic, setTopic] = useState<string>("");
+  const [copied, setCopied] = useState(false);
+
   const pollTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   const clearPoll = () => {
@@ -31,16 +34,28 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    // Load streaming avatars
+    let cancelled = false;
     (async () => {
       try {
-        const resp = await fetch("/api/streaming_avatars", { cache: "no-store" });
-        const data = await resp.json();
-        if (!resp.ok) return;
-        const items = Array.isArray(data?.data) ? data.data : [];
-        setAvailableAvatars(items);
+        const aResp = await fetch("/api/avatars", { cache: "no-store" });
+        const aData = await aResp.json();
+        if (!cancelled && aResp.ok) {
+          const aItems = Array.isArray(aData?.data) ? aData.data : [];
+          setAvailableAvatars(aItems as any);
+          if (!avatarId && aItems[0]?.avatar_id) setAvatarId(aItems[0].avatar_id);
+        }
+      } catch {}
+      try {
+        const vResp = await fetch("/api/voices", { cache: "no-store" });
+        const vData = await vResp.json();
+        if (!cancelled && vResp.ok) {
+          const vItems = Array.isArray(vData?.data) ? vData.data : [];
+          setAvailableVoices(vItems as any);
+          if (!voiceId && vItems[0]?.voice_id) setVoiceId(vItems[0].voice_id);
+        }
       } catch {}
     })();
+    return () => { cancelled = true; };
   }, []);
 
   const pollStatus = useCallback((id: string) => {
@@ -48,13 +63,7 @@ export default function Home() {
     setStatusText("Processing video...");
     pollTimerRef.current = setInterval(async () => {
       try {
-        const resp = await fetch(`/api/video_status?video_id=${encodeURIComponent(id)}`, {
-          cache: "no-store",
-          headers: { "Cache-Control": "no-cache" },
-        });
-        if (resp.status === 304) {
-          return; // ignore and continue polling
-        }
+        const resp = await fetch(`/api/video_status?video_id=${encodeURIComponent(id)}`, { cache: "no-store" });
         const data = await resp.json();
         if (!resp.ok) {
           setStatusText("Error checking status");
@@ -74,52 +83,14 @@ export default function Home() {
           setVideoUrl(url);
           clearPoll();
         }
-      } catch (e) {
+      } catch {
         setStatusText("Network error while polling");
         clearPoll();
       }
-    }, 3000);
+    }, 2500);
   }, []);
 
-  const onSubmit = useCallback(async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!message.trim()) return;
-    setSubmitting(true);
-    setReply(null);
-    setVideoId(null);
-    setVideoUrl(null);
-    setStatusText(null);
-    clearPoll();
-    try {
-      const resp = await fetch("/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          message,
-          ...(avatarId ? { avatar_id: avatarId } : {}),
-          ...(voiceId ? { voice_id: voiceId } : {}),
-        }),
-      });
-      const data = await resp.json();
-      if (!resp.ok) {
-        const heygenDetails = data?.details ? `\nDetails: ${JSON.stringify(data.details)}` : "";
-        setReply(`Error: ${data?.error || "Unknown error"}${heygenDetails}`);
-        setSubmitting(false);
-        return;
-      }
-      setReply(data?.reply_text || "");
-      if (data?.video_id) {
-        setVideoId(data.video_id);
-        pollStatus(data.video_id);
-      }
-    } catch (err) {
-      setReply("Network error");
-    } finally {
-      setSubmitting(false);
-    }
-  }, [message, pollStatus]);
-
-  const onTranscribe = useCallback(async () => {
+  const onTranscribe = async () => {
     if (!youtubeUrl.trim()) return;
     setTranscript("");
     setSummary("");
@@ -135,19 +106,20 @@ export default function Home() {
         return;
       }
       setTranscript(String(data?.transcript || ""));
-    } catch (e) {
+    } catch {
       setTranscript("Network error while transcribing");
     }
-  }, [youtubeUrl]);
+  };
 
-  const onSummarize = useCallback(async () => {
-    if (!transcript.trim()) return;
+  const onSummarize = async () => {
+    const inputText = transcript.trim() || topic.trim();
+    if (!inputText) return;
     setSummary("");
     try {
       const resp = await fetch("/api/summarize", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: transcript, max_sentences: 6 }),
+        body: JSON.stringify({ text: inputText, max_sentences: 6 }),
       });
       const data = await resp.json();
       if (!resp.ok) {
@@ -155,12 +127,12 @@ export default function Home() {
         return;
       }
       setSummary(String(data?.summary || ""));
-    } catch (e) {
+    } catch {
       setSummary("Network error while summarizing");
     }
-  }, [transcript]);
+  };
 
-  const onStartStreaming = useCallback(async () => {
+  const onStartStreaming = async () => {
     if (!summary.trim()) return;
     setStreaming(true);
     setVideoId(null);
@@ -178,8 +150,7 @@ export default function Home() {
       });
       const data = await resp.json();
       if (!resp.ok) {
-        const heygenDetails = data?.details ? `\nDetails: ${JSON.stringify(data.details)}` : "";
-        alert(`Generate video error: ${data?.error || "Unknown"}${heygenDetails}`);
+        alert(`Generate video error: ${data?.error || "Unknown"}`);
         setStreaming(false);
         return;
       }
@@ -187,117 +158,133 @@ export default function Home() {
         setVideoId(data.video_id);
         pollStatus(data.video_id);
       }
-    } catch (e) {
+    } catch {
       alert("Network error generating video");
     } finally {
       setStreaming(false);
     }
-  }, [summary, avatarId, voiceId]);
+  };
+
+  const copyToClipboard = (text: string) => {
+    navigator.clipboard.writeText(text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
-    <div className="max-w-xl mx-auto p-6">
-      <h1 className="text-2xl font-semibold mb-4">HeyGen Gemini Demo</h1>
-      <form onSubmit={onSubmit} className="flex flex-col gap-2 mb-4">
-        <input
-          type="text"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          placeholder="Type your message"
-          className="w-full border rounded px-3 py-2"
-        />
-        <div className="flex gap-2">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-200 p-6">
+      <div className="max-w-4xl mx-auto">
+        {/* Header */}
+        <header className="text-center mb-10">
+          <h1 className="text-4xl font-extrabold text-gray-900">🎙️ PodEdu AI</h1>
+          <p className="text-gray-800 mt-2">Turn YouTube into AI-Powered Podcast Summaries</p>
+        </header>
+
+        {/* Stepper */}
+        <div className="flex justify-between items-center mb-8">
+          {["YouTube", "Summarize", "Avatar"].map((step, idx) => (
+            <div key={idx} className="flex flex-col items-center">
+              <div className={`w-10 h-10 flex items-center justify-center rounded-full ${idx === 0 ? "bg-blue-600 text-white" : "bg-gray-300"}`}>
+                {idx === 0 ? <Youtube /> : idx === 1 ? <Brain /> : <VideoIcon />}
+              </div>
+              <span className="text-xs mt-1 text-gray-800">{step}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Step 1 */}
+        <div className="bg-white shadow-lg rounded-2xl p-6 mb-6">
+          <h2 className="font-semibold text-lg mb-2 text-gray-900">📺 Step 1: Enter YouTube URL</h2>
+          <div className="flex gap-2">
+            <input
+              value={youtubeUrl}
+              onChange={(e) => setYoutubeUrl(e.target.value)}
+              placeholder="https://www.youtube.com/watch?v=..."
+              className="flex-1 border border-gray-400 rounded-lg px-3 py-2 focus:ring focus:ring-blue-200 text-gray-900 placeholder-gray-700"
+            />
+            <button onClick={onTranscribe} className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center gap-2">
+              {submitting ? <Loader2 className="animate-spin" /> : "Transcribe"}
+            </button>
+          </div>
+        </div>
+
+        {/* Step 2 */}
+        <div className="bg-white shadow-lg rounded-2xl p-6 mb-6">
+          <h2 className="font-semibold text-lg mb-2 text-gray-900">🧠 Step 2: Summarize</h2>
+          <input
+            value={topic}
+            onChange={(e) => setTopic(e.target.value)}
+            placeholder="Or enter a topic..."
+            className="w-full border border-gray-400 rounded-lg px-3 py-2 mb-3 focus:ring focus:ring-blue-200 text-gray-900 placeholder-gray-700"
+          />
+          <button
+            onClick={onSummarize}
+            disabled={!transcript.trim() && !topic.trim()}
+            className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+          >
+            Generate Summary
+          </button>
+        </div>
+
+        {/* Step 3 */}
+        <div className="bg-white shadow-lg rounded-2xl p-6 mb-6">
+          <h2 className="font-semibold text-lg mb-2 text-gray-900">🎬 Step 3: Generate Avatar Video</h2>
           <select
             value={avatarId}
             onChange={(e) => setAvatarId(e.target.value)}
-            className="flex-1 border rounded px-3 py-2"
+            className="w-full border border-gray-400 rounded-lg px-3 py-2 mb-3 text-gray-900"
           >
-            <option value="">Default avatar (env)</option>
             {availableAvatars.map((a) => (
               <option key={a.avatar_id} value={a.avatar_id}>
-                {a.pose_name || a.avatar_id}
+                {a.name || a.avatar_id}
               </option>
             ))}
           </select>
-          <input
-            type="text"
+          <select
             value={voiceId}
             onChange={(e) => setVoiceId(e.target.value)}
-            placeholder="Optional voice_id"
-            className="flex-1 border rounded px-3 py-2"
-          />
-        </div>
-        <button
-          type="submit"
-          className="border rounded px-4 py-2 bg-black text-white disabled:opacity-50"
-          disabled={submitting}
-        >
-          {submitting ? "Sending..." : "Send"}
-        </button>
-      </form>
-
-      {reply && (
-        <div className="mb-4">
-          <div className="font-medium mb-1">Generated reply</div>
-          <div className="whitespace-pre-wrap border rounded p-3">{reply}</div>
-        </div>
-      )}
-
-      {videoId && (
-        <div className="mb-2 text-sm text-gray-600">Video ID: {videoId}</div>
-      )}
-      {statusText && (
-        <div className="mb-4 text-sm">Status: {statusText}</div>
-      )}
-
-      {videoUrl && (
-        <video src={videoUrl} controls className="w-full rounded border" />
-      )}
-
-      <hr className="my-6" />
-      <h2 className="text-xl font-semibold mb-2">YouTube → Whisper → Summary → Stream Avatar</h2>
-      <div className="flex flex-col gap-2 mb-3">
-        <input
-          type="text"
-          value={youtubeUrl}
-          onChange={(e) => setYoutubeUrl(e.target.value)}
-          placeholder="Paste YouTube URL"
-          className="w-full border rounded px-3 py-2"
-        />
-        <div className="flex gap-2">
-          <button
-            onClick={onTranscribe}
-            className="border rounded px-4 py-2 bg-black text-white"
+            className="w-full border border-gray-400 rounded-lg px-3 py-2 mb-3 text-gray-900"
           >
-            Transcribe
-          </button>
-          <button
-            onClick={onSummarize}
-            className="border rounded px-4 py-2 bg-black text-white disabled:opacity-50"
-            disabled={!transcript.trim()}
-          >
-            Summarize
-          </button>
+            {availableVoices.map((v) => (
+              <option key={v.voice_id} value={v.voice_id}>
+                {v.name || v.voice_id}
+              </option>
+            ))}
+          </select>
           <button
             onClick={onStartStreaming}
-            className="border rounded px-4 py-2 bg-black text-white disabled:opacity-50"
             disabled={!summary.trim() || streaming}
+            className="w-full px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
           >
-            {streaming ? "Starting..." : "Stream Avatar"}
+            {streaming ? "Generating..." : "Generate Video"}
           </button>
         </div>
+
+        {/* Results */}
+        {transcript && (
+          <div className="bg-white shadow-lg rounded-2xl p-6 mb-6">
+            <h3 className="font-semibold mb-2 flex items-center justify-between text-gray-900">
+              Transcript
+              <button onClick={() => copyToClipboard(transcript)} className="text-gray-700 hover:text-gray-900">
+                {copied ? <CheckCircle size={18} /> : <Copy size={18} />}
+              </button>
+            </h3>
+            <pre className="whitespace-pre-wrap text-sm bg-gray-100 text-gray-900 rounded p-3 max-h-60 overflow-auto">{transcript}</pre>
+          </div>
+        )}
+        {summary && (
+          <div className="bg-white shadow-lg rounded-2xl p-6 mb-6">
+            <h3 className="font-semibold mb-2 text-gray-900">Summary</h3>
+            <p className="text-sm bg-gray-100 text-gray-900 rounded p-3">{summary}</p>
+          </div>
+        )}
+        {(videoId || statusText) && (
+          <div className="bg-white shadow-lg rounded-2xl p-6">
+            {statusText && <p className="mb-2 text-sm text-gray-900">Status: {statusText}</p>}
+            {videoUrl && <video src={videoUrl} controls className="w-full rounded-lg shadow" />}
+          </div>
+        )}
       </div>
-      {transcript && (
-        <div className="mb-4">
-          <div className="font-medium mb-1">Transcript</div>
-          <div className="whitespace-pre-wrap border rounded p-3 max-h-60 overflow-auto">{transcript}</div>
-        </div>
-      )}
-      {summary && (
-        <div className="mb-4">
-          <div className="font-medium mb-1">Summary</div>
-          <div className="whitespace-pre-wrap border rounded p-3">{summary}</div>
-        </div>
-      )}
     </div>
   );
 }
