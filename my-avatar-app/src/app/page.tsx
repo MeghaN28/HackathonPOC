@@ -19,6 +19,7 @@ export default function Home() {
   const [streaming, setStreaming] = useState(false);
   const [topic, setTopic] = useState<string>("");
   const [copied, setCopied] = useState(false);
+  const [activeStep, setActiveStep] = useState(0);
 
   const pollTimerRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -184,8 +185,8 @@ export default function Home() {
         <div className="flex justify-between items-center mb-8">
           {["YouTube", "Summarize", "Avatar"].map((step, idx) => (
             <div key={idx} className="flex flex-col items-center">
-              <div className={`w-10 h-10 flex items-center justify-center rounded-full ${idx === 0 ? "bg-blue-600 text-white" : "bg-gray-300"}`}>
-                {idx === 0 ? <Youtube /> : idx === 1 ? <Brain /> : <VideoIcon />}
+              <div className={`w-10 h-10 flex items-center justify-center rounded-full transition-colors ${activeStep === idx ? "bg-blue-600 text-white" : "bg-gray-300 text-gray-700"}`}>
+                {idx === 0 ? <Youtube size={20} /> : idx === 1 ? <Brain size={20} /> : <VideoIcon size={20} />}
               </div>
               <span className="text-xs mt-1 text-gray-800">{step}</span>
             </div>
@@ -193,12 +194,13 @@ export default function Home() {
         </div>
 
         {/* Step 1 */}
-        <div className="bg-white shadow-lg rounded-2xl p-6 mb-6">
+        <div className="bg-white shadow-lg rounded-2xl p-6 mb-6" onClick={() => setActiveStep(0)}>
           <h2 className="font-semibold text-lg mb-2 text-gray-900">📺 Step 1: Enter YouTube URL</h2>
           <div className="flex gap-2">
             <input
               value={youtubeUrl}
               onChange={(e) => setYoutubeUrl(e.target.value)}
+              onFocus={() => setActiveStep(0)}
               placeholder="https://www.youtube.com/watch?v=..."
               className="flex-1 border border-gray-400 rounded-lg px-3 py-2 focus:ring focus:ring-blue-200 text-gray-900 placeholder-gray-700"
             />
@@ -209,11 +211,12 @@ export default function Home() {
         </div>
 
         {/* Step 2 */}
-        <div className="bg-white shadow-lg rounded-2xl p-6 mb-6">
+        <div className="bg-white shadow-lg rounded-2xl p-6 mb-6" onClick={() => setActiveStep(1)}>
           <h2 className="font-semibold text-lg mb-2 text-gray-900">🧠 Step 2: Summarize</h2>
           <input
             value={topic}
             onChange={(e) => setTopic(e.target.value)}
+            onFocus={() => setActiveStep(1)}
             placeholder="Or enter a topic..."
             className="w-full border border-gray-400 rounded-lg px-3 py-2 mb-3 focus:ring focus:ring-blue-200 text-gray-900 placeholder-gray-700"
           />
@@ -227,11 +230,12 @@ export default function Home() {
         </div>
 
         {/* Step 3 */}
-        <div className="bg-white shadow-lg rounded-2xl p-6 mb-6">
+        <div className="bg-white shadow-lg rounded-2xl p-6 mb-6" onClick={() => setActiveStep(2)}>
           <h2 className="font-semibold text-lg mb-2 text-gray-900">🎬 Step 3: Generate Avatar Video</h2>
           <select
             value={avatarId}
             onChange={(e) => setAvatarId(e.target.value)}
+            onFocus={() => setActiveStep(2)}
             className="w-full border border-gray-400 rounded-lg px-3 py-2 mb-3 text-gray-900"
           >
             {availableAvatars.map((a) => (
@@ -243,6 +247,7 @@ export default function Home() {
           <select
             value={voiceId}
             onChange={(e) => setVoiceId(e.target.value)}
+            onFocus={() => setActiveStep(2)}
             className="w-full border border-gray-400 rounded-lg px-3 py-2 mb-3 text-gray-900"
           >
             {availableVoices.map((v) => (

@@ -25,7 +25,7 @@ export default async function handler(req, res) {
     const prompt = ChatPromptTemplate.fromMessages([
       [
         "system",
-        `You are a concise expert summarizer. Summarize the provided transcript in up to ${max_sentences} bullet points. Avoid fluff. Return plain text.`,
+        `You are a professional podcast scriptwriter. Create a natural, engaging podcast-style summary of the provided content. Write in a conversational tone as if you're speaking directly to listeners. Use complete sentences and natural transitions between ideas. DO NOT use bullet points, asterisks, markdown, or any special formatting. Keep it concise (about ${max_sentences} key points) but flowing like spoken narration. Make it sound human and engaging.`,
       ],
       ["human", "{input}"]
     ]);
