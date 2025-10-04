@@ -1,6 +1,7 @@
 "use client";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Loader2, Youtube, Brain, VideoIcon, Copy, CheckCircle } from "lucide-react";
+import StreamingAvatar, { AvatarQuality, StreamingEvents, TaskType } from "@heygen/streaming-avatar";
 
 export default function Home() {
   const [message, setMessage] = useState<string>("");
@@ -20,8 +21,14 @@ export default function Home() {
   const [topic, setTopic] = useState<string>("");
   const [copied, setCopied] = useState(false);
   const [activeStep, setActiveStep] = useState(0);
+  const [isLoadingSession, setIsLoadingSession] = useState(false);
+  const [stream, setStream] = useState<MediaStream | null>(null);
+  const [debug, setDebug] = useState<string>("");
+  const [sessionData, setSessionData] = useState<any>(null);
 
   const pollTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const avatarRef = useRef<StreamingAvatar | null>(null);
+  const mediaStreamRef = useRef<HTMLVideoElement>(null);
 
   const clearPoll = () => {
     if (pollTimerRef.current) {
@@ -31,21 +38,36 @@ export default function Home() {
   };
 
   useEffect(() => {
-    return () => clearPoll();
+    return () => {
+      clearPoll();
+      if (avatarRef.current) {
+        avatarRef.current.stopAvatar().catch(console.error);
+      }
+    };
   }, []);
 
   useEffect(() => {
     let cancelled = false;
     (async () => {
       try {
-        const aResp = await fetch("/api/avatars", { cache: "no-store" });
+        // Get streaming avatars instead of regular avatars
+        const aResp = await fetch("/api/streaming_avatars", { cache: "no-store" });
         const aData = await aResp.json();
         if (!cancelled && aResp.ok) {
-          const aItems = Array.isArray(aData?.data) ? aData.data : [];
+          console.log("Streaming avatars response:", aData);
+          // Parse streaming avatars response
+          const avatarsList = aData?.data?.avatars?.public_avatars || aData?.data?.avatars || aData?.avatars || [];
+          const aItems = Array.isArray(avatarsList) ? avatarsList.slice(0, 3).map((a: any) => ({
+            avatar_id: a?.avatar_id || a?.id || "",
+            name: a?.avatar_name || a?.name || a?.avatar_id || a?.id || ""
+          })) : [];
+          console.log("Parsed avatars:", aItems);
           setAvailableAvatars(aItems as any);
           if (!avatarId && aItems[0]?.avatar_id) setAvatarId(aItems[0].avatar_id);
         }
-      } catch {}
+      } catch (e) {
+        console.error("Failed to fetch avatars:", e);
+      }
       try {
         const vResp = await fetch("/api/voices", { cache: "no-store" });
         const vData = await vResp.json();
@@ -54,7 +76,9 @@ export default function Home() {
           setAvailableVoices(vItems as any);
           if (!voiceId && vItems[0]?.voice_id) setVoiceId(vItems[0].voice_id);
         }
-      } catch {}
+      } catch (e) {
+        console.error("Failed to fetch voices:", e);
+      }
     })();
     return () => { cancelled = true; };
   }, []);
@@ -135,34 +159,88 @@ export default function Home() {
 
   const onStartStreaming = async () => {
     if (!summary.trim()) return;
-    setStreaming(true);
-    setVideoId(null);
-    setVideoUrl(null);
-    setStatusText(null);
+    setIsLoadingSession(true);
+    setDebug("Fetching access token...");
     try {
-      const resp = await fetch("/api/generate_video", {
+      // Get token
+      const tokenResp = await fetch("/api/heygen_stream_token", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          text: summary,
-          ...(avatarId ? { avatar_id: avatarId } : {}),
-          ...(voiceId ? { voice_id: voiceId } : {}),
-        }),
       });
-      const data = await resp.json();
-      if (!resp.ok) {
-        alert(`Generate video error: ${data?.error || "Unknown"}`);
-        setStreaming(false);
+      const tokenData = await tokenResp.json();
+      if (!tokenResp.ok || !tokenData.token) {
+        const errorMsg = `Token error (${tokenResp.status}): ${JSON.stringify(tokenData)}`;
+        setDebug(errorMsg);
+        alert(`Failed to get streaming token. Check console for details.\n${tokenData.error || 'Unknown error'}`);
+        console.error("Token error details:", tokenData);
+        setIsLoadingSession(false);
         return;
       }
-      if (data?.video_id) {
-        setVideoId(data.video_id);
-        pollStatus(data.video_id);
+
+      setDebug("Creating avatar session...");
+      const avatar = new StreamingAvatar({ token: tokenData.token });
+      avatarRef.current = avatar;
+
+      // Set up event listeners
+      avatar.on(StreamingEvents.STREAM_READY, (event: any) => {
+        setDebug("Stream ready!");
+        if (event.detail && mediaStreamRef.current) {
+          mediaStreamRef.current.srcObject = event.detail;
+          mediaStreamRef.current.play().catch(console.error);
+          setStream(event.detail);
+        }
+      });
+
+      avatar.on(StreamingEvents.STREAM_DISCONNECTED, () => {
+        setDebug("Stream disconnected");
+        setStream(null);
+      });
+
+      // Start session
+      const sessionConfig: any = {
+        quality: AvatarQuality.High,
+      };
+      
+      // Only add avatarName if we have a valid one
+      if (avatarId && avatarId !== "default") {
+        sessionConfig.avatarName = avatarId;
       }
-    } catch {
-      alert("Network error generating video");
-    } finally {
-      setStreaming(false);
+      
+      // Note: Don't set voice for streaming avatars - they have default voices
+      // Streaming avatars use their built-in voices, not the regular voice API
+      
+      console.log("Creating avatar with config:", sessionConfig);
+      const session = await avatar.createStartAvatar(sessionConfig);
+
+      setSessionData(session);
+      setDebug(`Session started: ${session.session_id}`);
+      setIsLoadingSession(false);
+
+      // Speak the summary
+      setTimeout(async () => {
+        try {
+          await avatar.speak({ text: summary, taskType: TaskType.REPEAT });
+          setDebug("Avatar is speaking...");
+        } catch (e: any) {
+          setDebug(`Speak error: ${e.message}`);
+        }
+      }, 1000);
+    } catch (error: any) {
+      setDebug(`Error: ${error.message}`);
+      alert(`Streaming error: ${error.message}`);
+      setIsLoadingSession(false);
+    }
+  };
+
+  const onStopStreaming = async () => {
+    if (!avatarRef.current) return;
+    try {
+      await avatarRef.current.stopAvatar();
+      setStream(null);
+      setSessionData(null);
+      setDebug("Session ended");
+    } catch (e: any) {
+      setDebug(`Stop error: ${e.message}`);
     }
   };
 
@@ -231,38 +309,36 @@ export default function Home() {
 
         {/* Step 3 */}
         <div className="bg-white shadow-lg rounded-2xl p-6 mb-6" onClick={() => setActiveStep(2)}>
-          <h2 className="font-semibold text-lg mb-2 text-gray-900">🎬 Step 3: Generate Avatar Video</h2>
+          <h2 className="font-semibold text-lg mb-2 text-gray-900">🎬 Step 3: Start Streaming Avatar</h2>
           <select
             value={avatarId}
             onChange={(e) => setAvatarId(e.target.value)}
             onFocus={() => setActiveStep(2)}
             className="w-full border border-gray-400 rounded-lg px-3 py-2 mb-3 text-gray-900"
           >
+            {availableAvatars.length === 0 && <option value="">Loading avatars...</option>}
             {availableAvatars.map((a) => (
               <option key={a.avatar_id} value={a.avatar_id}>
                 {a.name || a.avatar_id}
               </option>
             ))}
           </select>
-          <select
-            value={voiceId}
-            onChange={(e) => setVoiceId(e.target.value)}
-            onFocus={() => setActiveStep(2)}
-            className="w-full border border-gray-400 rounded-lg px-3 py-2 mb-3 text-gray-900"
-          >
-            {availableVoices.map((v) => (
-              <option key={v.voice_id} value={v.voice_id}>
-                {v.name || v.voice_id}
-              </option>
-            ))}
-          </select>
+          <p className="text-xs text-gray-600 mb-3">Note: Streaming avatars use their built-in voices</p>
           <button
             onClick={onStartStreaming}
-            disabled={!summary.trim() || streaming}
-            className="w-full px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
+            disabled={!summary.trim() || isLoadingSession || !!stream}
+            className="w-full px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {streaming ? "Generating..." : "Generate Video"}
+            {isLoadingSession ? "Starting Session..." : stream ? "Session Active" : "Start Streaming Avatar"}
           </button>
+          {stream && (
+            <button
+              onClick={onStopStreaming}
+              className="w-full px-4 py-2 mt-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
+            >
+              Stop Avatar
+            </button>
+          )}
         </div>
 
         {/* Results */}
@@ -283,7 +359,29 @@ export default function Home() {
             <p className="text-sm bg-gray-100 text-gray-900 rounded p-3">{summary}</p>
           </div>
         )}
-        {(videoId || statusText) && (
+        {/* Streaming Avatar Video */}
+        {(stream || isLoadingSession) && (
+          <div className="bg-white shadow-lg rounded-2xl p-6 mb-6">
+            <h3 className="font-semibold mb-2 text-gray-900">Live Streaming Avatar</h3>
+            <div className="relative bg-gray-900 rounded-lg overflow-hidden" style={{ aspectRatio: "16/9" }}>
+              <video
+                ref={mediaStreamRef}
+                autoPlay
+                playsInline
+                className="w-full h-full object-contain"
+              />
+              {isLoadingSession && (
+                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                  <Loader2 className="animate-spin text-white" size={48} />
+                </div>
+              )}
+            </div>
+            {debug && <p className="mt-2 text-xs text-gray-600">Debug: {debug}</p>}
+          </div>
+        )}
+        
+        {/* Old video generation result (kept for fallback) */}
+        {(videoId || statusText) && !stream && (
           <div className="bg-white shadow-lg rounded-2xl p-6">
             {statusText && <p className="mb-2 text-sm text-gray-900">Status: {statusText}</p>}
             {videoUrl && <video src={videoUrl} controls className="w-full rounded-lg shadow" />}
